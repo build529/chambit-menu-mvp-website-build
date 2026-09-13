@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin · Chambit Menu</title>
+  <link rel="stylesheet" href="/static/css/site.css">
+</head>
+<body>
+  <main class="admin-shell wide">
+    <header>
+      <h1>Chambit Menu Admin</h1>
+
+      <form method="post" action="/admin/logout">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <button type="submit">Log out</button>
+      </form>
+    </header>
+
+    <p>
+      <a href="/admin/new">Create menu entry</a>
+    </p>
+
+    <form method="get" action="/admin">
+      <label>
+        Filter by service date
+        <input
+          type="date"
+          name="service_date"
+          value="{{ filter_date or '' }}"
+        >
+      </label>
+
+      <button type="submit">Filter</button>
+      <a href="/admin">Clear filter</a>
+    </form>
+
+    <section aria-label="Menu entries">
+      {% if entries %}
+        <ul>
+          {% for entry in entries %}
+            <li>
+              <strong>
+                {{ entry.service_date }}
+                · {{ entry.meal_period.title() }}
+                · {{ entry.line_type.title() }}
+              </strong>
+              — {{ entry.status }}
+              — {{ entry.image_source.replace('_', ' ').title() }}
+              <a href="/admin/{{ entry.id }}/edit">Edit</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No menu entries found.</p>
+      {% endif %}
+    </section>
+  </main>
+</body>
+</html>

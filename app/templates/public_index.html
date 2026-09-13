@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+  <title>Chambit Menu</title>
+  <link rel="stylesheet" href="/static/css/site.css">
+</head>
+
+<body data-date="{{ display_date.isoformat() }}">
+  <main class="shell">
+    <header class="public-header">
+      <p class="eyebrow">Made by Jose Aldonate</p>
+      <h1>Chambit Menu</h1>
+      <p class="date">
+        {{ display_date.strftime("%A, %B %-d, %Y") }}
+        <span>KST</span>
+      </p>
+    </header>
+
+    <section aria-label="Lunch menu">
+      <h2>Lunch</h2>
+
+      <div
+        class="switcher"
+        role="group"
+        aria-label="Select food line"
+      >
+        <button
+          type="button"
+          data-line="left"
+          aria-pressed="{{ 'true' if entry and entry.line_type == 'left' else 'false' }}"
+          {% if not available_lines.left %}disabled{% endif %}
+        >
+          Left Line
+        </button>
+
+        <button
+          type="button"
+          data-line="right"
+          aria-pressed="{{ 'true' if entry and entry.line_type == 'right' else 'false' }}"
+          {% if not available_lines.right %}disabled{% endif %}
+        >
+          Right Line
+        </button>
+      </div>
+    </section>
+
+    <section
+      id="menu-card"
+      class="menu-card"
+      aria-live="polite"
+    >
+      {% if entry %}
+        <h2 id="menu-heading">{{ entry.title }}</h2>
+
+        <img
+          id="menu-image"
+          src="{{ entry.image_url }}"
+          alt="{% if entry.image_source == 'ai_generated' %}AI meal preview{% else %}Meal photo{% endif %} for Lunch, {{ entry.line_type|title }} Line, {{ display_date.strftime('%B %-d, %Y') }}."
+        >
+
+        {% if entry.image_source == "ai_generated" %}
+          <p class="notice">
+            AI meal preview · Actual serving may vary.
+          </p>
+        {% endif %}
+
+        <ul id="menu-items">
+          {% for item in entry.menu_items %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <div class="empty">
+          <h2>Today's menu is being prepared.</h2>
+          <p>Please check again soon.</p>
+        </div>
+      {% endif %}
+    </section>
+  </main>
+
+  <script src="/static/js/menu.js"></script>
+</body>
+</html>

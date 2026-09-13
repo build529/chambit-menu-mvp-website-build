@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create menu entry · Chambit Menu</title>
+</head>
+<body>
+  <main>
+    <p><a href="/admin">← Back to menu entries</a></p>
+
+    <h1>Create menu entry</h1>
+
+    <p>
+      Keep entries as Draft until the approved English menu and preview image
+      have been reviewed. Published entries appear on the public website.
+    </p>
+
+    <form
+      method="post"
+      action="/admin/save"
+      enctype="multipart/form-data"
+    >
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
+      <label>
+        Service date
+        <input type="date" name="service_date" required>
+      </label>
+
+      <label>
+        Meal period
+        <select name="meal_period" required>
+          <option value="LUNCH">Lunch</option>
+          <option value="BREAKFAST">Breakfast</option>
+          <option value="DINNER">Dinner</option>
+        </select>
+      </label>
+
+      <label>
+        Line type
+        <select name="line_type" required>
+          <option value="LEFT">Left Line</option>
+          <option value="RIGHT">Right Line</option>
+          <option value="SHARED">Shared Line (Dinner only)</option>
+        </select>
+      </label>
+
+      <label>
+        Image source
+        <select name="image_source" required>
+          <option value="AI_GENERATED">AI generated preview</option>
+          <option value="REAL">Real cafeteria photo</option>
+          <option value="STUDENT_UPLOADED">Student-uploaded photo</option>
+        </select>
+      </label>
+
+      <label>
+        Menu title <small>(optional)</small>
+        <input
+          type="text"
+          name="menu_title"
+          maxlength="120"
+          placeholder="Lunch · Left Line"
+        >
+      </label>
+
+      <label>
+        Approved English menu items
+        <small>Enter one item per line.</small>
+        <textarea
+          name="menu_items"
+          rows="8"
+          required
+          placeholder="Rice&#10;Spicy chicken&#10;Kimchi&#10;Soup"
+        ></textarea>
+      </label>
+
+      <label>
+        Raw approved source text <small>(internal, optional)</small>
+        <textarea
+          name="description_raw"
+          rows="4"
+          placeholder="Original English or Korean source text"
+        ></textarea>
+      </label>
+
+      <label>
+        Preview image
+        <small>JPEG, PNG, or WebP; maximum 10 MB.</small>
+        <input
+          type="file"
+          name="image"
+          accept="image/jpeg,image/png,image/webp"
+        >
+      </label>
+
+      <label>
+        Publication status
+        <select name="status" required>
+          <option value="DRAFT">Draft</option>
+          <option value="PUBLISHED">Published</option>
+          <option value="ARCHIVED">Archived</option>
+        </select>
+      </label>
+
+      <label>
+        Internal notes <small>(never shown publicly)</small>
+        <textarea
+          name="notes_internal"
+          rows="4"
+        ></textarea>
+      </label>
+
+      <button type="submit">Save entry</button>
+    </form>
+  </main>
+</body>
+</html>
