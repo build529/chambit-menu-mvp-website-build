@@ -1,3 +1,4 @@
+from app.config import settings
 from fastapi import APIRouter, Depends, Query, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -66,5 +67,7 @@ def public_menu_page(
                 "left": left_entry is not None,
                 "right": right_entry is not None,
             },
+            "ga_measurement_id": settings.ga_measurement_id,
+
         },
     )
