@@ -3,55 +3,109 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Create menu entry · Chambit Menu</title>
+  <title>
+    {{ "Edit" if entry else "Create" }} menu entry · Chambit Menu
+  </title>
+  <link rel="stylesheet" href="/static/css/site.css">
 </head>
 <body>
-  <main>
+  <main class="admin-shell">
     <p><a href="/admin">← Back to menu entries</a></p>
 
-    <h1>Create menu entry</h1>
+    <h1>{{ "Edit" if entry else "Create" }} menu entry</h1>
 
-    <p>
+    <p class="help">
       Keep entries as Draft until the approved English menu and preview image
       have been reviewed. Published entries appear on the public website.
     </p>
 
     <form
+      class="form-card"
       method="post"
-      action="/admin/save"
+      action="{% if entry %}/admin/{{ entry.id }}/save{% else %}/admin/save{% endif %}"
       enctype="multipart/form-data"
     >
       <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
 
       <label>
         Service date
-        <input type="date" name="service_date" required>
+        <input
+          type="date"
+          name="service_date"
+          required
+          value="{{ entry.service_date if entry else '' }}"
+        >
       </label>
 
       <label>
         Meal period
         <select name="meal_period" required>
-          <option value="LUNCH">Lunch</option>
-          <option value="BREAKFAST">Breakfast</option>
-          <option value="DINNER">Dinner</option>
+          <option
+            value="LUNCH"
+            {% if entry and entry.meal_period == "LUNCH" %}selected{% endif %}
+          >
+            Lunch
+          </option>
+          <option
+            value="BREAKFAST"
+            {% if entry and entry.meal_period == "BREAKFAST" %}selected{% endif %}
+          >
+            Breakfast
+          </option>
+          <option
+            value="DINNER"
+            {% if entry and entry.meal_period == "DINNER" %}selected{% endif %}
+          >
+            Dinner
+          </option>
         </select>
       </label>
 
       <label>
         Line type
         <select name="line_type" required>
-          <option value="LEFT">Left Line</option>
-          <option value="RIGHT">Right Line</option>
-          <option value="SHARED">Shared Line (Dinner only)</option>
+          <option
+            value="LEFT"
+            {% if entry and entry.line_type == "LEFT" %}selected{% endif %}
+          >
+            Left Line
+          </option>
+          <option
+            value="RIGHT"
+            {% if entry and entry.line_type == "RIGHT" %}selected{% endif %}
+          >
+            Right Line
+          </option>
+          <option
+            value="SHARED"
+            {% if entry and entry.line_type == "SHARED" %}selected{% endif %}
+          >
+            Shared Line (Dinner only)
+          </option>
         </select>
       </label>
 
       <label>
         Image source
         <select name="image_source" required>
-          <option value="AI_GENERATED">AI generated preview</option>
-          <option value="REAL">Real cafeteria photo</option>
-          <option value="STUDENT_UPLOADED">Student-uploaded photo</option>
+          <option
+            value="AI_GENERATED"
+            {% if entry and entry.image_source == "AI_GENERATED" %}selected{% endif %}
+          >
+            AI generated preview
+          </option>
+          <option
+            value="REAL"
+            {% if entry and entry.image_source == "REAL" %}selected{% endif %}
+          >
+            Real cafeteria photo
+          </option>
+          <option
+            value="STUDENT_UPLOADED"
+            {% if entry and entry.image_source == "STUDENT_UPLOADED" %}selected{% endif %}
+          >
+            Student-uploaded photo
+          </option>
         </select>
       </label>
 
@@ -61,6 +115,7 @@
           type="text"
           name="menu_title"
           maxlength="120"
+          value="{{ entry.menu_title if entry and entry.menu_title else '' }}"
           placeholder="Lunch · Left Line"
         >
       </label>
@@ -73,7 +128,7 @@
           rows="8"
           required
           placeholder="Rice&#10;Spicy chicken&#10;Kimchi&#10;Soup"
-        ></textarea>
+        >{{ items_text if entry else '' }}</textarea>
       </label>
 
       <label>
@@ -82,12 +137,21 @@
           name="description_raw"
           rows="4"
           placeholder="Original English or Korean source text"
-        ></textarea>
+        >{{ entry.description_raw if entry and entry.description_raw else '' }}</textarea>
       </label>
 
       <label>
         Preview image
-        <small>JPEG, PNG, or WebP; maximum 10 MB.</small>
+        {% if entry and entry.image_path_or_url %}
+          <small>Leave blank to keep the current image.</small>
+          <img
+            class="thumb"
+            src="{{ entry.image_path_or_url }}"
+            alt="Current preview image"
+          >
+        {% else %}
+          <small>JPEG, PNG, or WebP; maximum 10 MB.</small>
+        {% endif %}
         <input
           type="file"
           name="image"
@@ -98,9 +162,24 @@
       <label>
         Publication status
         <select name="status" required>
-          <option value="DRAFT">Draft</option>
-          <option value="PUBLISHED">Published</option>
-          <option value="ARCHIVED">Archived</option>
+          <option
+            value="DRAFT"
+            {% if not entry or entry.status == "DRAFT" %}selected{% endif %}
+          >
+            Draft
+          </option>
+          <option
+            value="PUBLISHED"
+            {% if entry and entry.status == "PUBLISHED" %}selected{% endif %}
+          >
+            Published
+          </option>
+          <option
+            value="ARCHIVED"
+            {% if entry and entry.status == "ARCHIVED" %}selected{% endif %}
+          >
+            Archived
+          </option>
         </select>
       </label>
 
@@ -109,10 +188,12 @@
         <textarea
           name="notes_internal"
           rows="4"
-        ></textarea>
+        >{{ entry.notes_internal if entry and entry.notes_internal else '' }}</textarea>
       </label>
 
-      <button type="submit">Save entry</button>
+      <button type="submit">
+        {{ "Save changes" if entry else "Save entry" }}
+      </button>
     </form>
   </main>
 </body>

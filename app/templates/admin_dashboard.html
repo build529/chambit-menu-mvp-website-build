@@ -47,7 +47,19 @@
               </strong>
               — {{ entry.status }}
               — {{ entry.image_source.replace('_', ' ').title() }}
-              <a href="/admin/{{ entry.id }}/edit">Edit</a>
+              <div class="row-actions">
+                <a href="/admin/{{ entry.id }}/edit">Edit</a>
+
+                <form
+                  method="post"
+                  action="/admin/{{ entry.id }}/delete"
+                  onsubmit="return confirm('Delete this entry? This cannot be undone.')"
+                >
+                  <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                  <button class="danger" type="submit">Delete</button>
+                </form>
+              </div>
+
             </li>
           {% endfor %}
         </ul>
