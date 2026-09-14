@@ -22,6 +22,12 @@
     card.innerHTML = `
       <h2 id="menu-heading">${escapeHtml(entry.title)}</h2>
 
+      ${
+      entry.message
+      ? `<p class="meal-message">${escapeHtml(entry.message)}</p>`
+      : ""
+      }
+
       <img
         id="menu-image"
         src="${entry.image_url}"

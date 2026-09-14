@@ -109,16 +109,18 @@
         </select>
       </label>
 
+          
       <label>
-        Menu title <small>(optional)</small>
+        Meal message or warning <small>(optional)</small>
         <input
           type="text"
           name="menu_title"
           maxlength="120"
           value="{{ entry.menu_title if entry and entry.menu_title else '' }}"
-          placeholder="Lunch · Left Line"
+          placeholder="Example: Contains pork · Spicy dish · Limited quantity"
         >
       </label>
+
 
       <label>
         Approved English menu items

@@ -7,7 +7,8 @@
     content="width=device-width, initial-scale=1"
   >
   <title>Chambit Menu</title>
-  <link rel="stylesheet" href="/static/css/site.css">
+  <link rel="stylesheet" href="/static/css/site.css?v=blue-test-1">
+
   {% if ga_measurement_id %}
   <!-- Google tag (gtag.js) -->
   <script
@@ -40,6 +41,7 @@
 
     <section aria-label="Lunch menu">
       <h2>Lunch</h2>
+      <p class="service-time">11:45 – 13:45</p>
 
       <div
         class="switcher"
@@ -73,7 +75,11 @@
     >
       {% if entry %}
         <h2 id="menu-heading">{{ entry.title }}</h2>
-
+        
+        {% if entry.message %}
+        <p class="meal-message">{{ entry.message }}</p>
+        {% endif %}
+        
         <img
           id="menu-image"
           src="{{ entry.image_url }}"
@@ -98,6 +104,11 @@
         </div>
       {% endif %}
     </section>
+
+    <footer class="public-footer">
+      <p>AI meal previews are based on representative cafeteria meals.</p>
+      <p>Breakfast and Dinner will be available soon.</p>
+    </footer>
   </main>
 
   <script src="/static/js/menu.js"></script>

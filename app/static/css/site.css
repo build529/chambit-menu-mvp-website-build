@@ -78,31 +78,94 @@ h2 {
   margin-bottom: 20px;
 }
 
-.switcher button,
+
+.service-time {
+  margin: -10px 0 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.meal-message {
+  margin: -4px 0 16px;
+  padding: 10px 12px;
+  border-left: 4px solid #9fc2aa;
+  border-radius: 0 8px 8px 0;
+  background: #f0f6f1;
+  color: var(--green-dark);
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+
+.public-footer {
+  margin-top: 28px;
+  padding: 4px 2px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  text-align: center;
+}
+
+.public-footer p {
+  margin: 7px 0;
+}
+
+
+
 button,
 .button-link {
   min-height: 48px;
   padding: 12px 16px;
   border: 1px solid var(--green);
   border-radius: 10px;
-  background: var(--paper);
-  color: var(--green);
+  background: var(--green);
+  color: #fff;
   cursor: pointer;
   font: inherit;
   font-weight: 700;
   text-align: center;
 }
 
-.switcher button[aria-pressed="true"],
-button:not(.secondary):not(.danger),
-.button-link {
-  background: var(--green);
-  color: #fff;
+.switcher button {
+  min-height: 52px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #aac9dc;
+  background: #e8f4fb;
+  color: #1f536d;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 750;
+  text-align: center;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
 }
 
+.switcher button:hover:not(:disabled) {
+  border-color: #6da9c8;
+  background: #d8edf8;
+}
+
+.switcher button[aria-pressed="true"] {
+  border-color: var(--green-dark);
+  background: var(--green);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(47, 107, 79, 0.22);
+}
+
+.switcher button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+
 .switcher button:disabled {
+  border-color: #d6d6d0;
+  background: #ecece7;
+  color: #83837b;
   cursor: not-allowed;
-  opacity: 0.45;
+  opacity: 1;
 }
 
 .menu-card,

@@ -87,10 +87,8 @@ def public_entry(entry: MenuEntry) -> dict:
         "service_date": entry.service_date.isoformat(),
         "meal_period": entry.meal_period.lower(),
         "line_type": entry.line_type.lower(),
-        "title": (
-            entry.menu_title
-            or f"{entry.meal_period.title()} · {entry.line_type.title()} Line"
-        ),
+        "title": f"{entry.meal_period.title()} · {entry.line_type.title()} Line",
+        "message": entry.menu_title,
         "menu_items": json.loads(entry.menu_items_json),
         "image_url": entry.image_path_or_url,
         "image_source": entry.image_source.lower(),
