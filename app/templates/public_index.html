@@ -7,7 +7,8 @@
     content="width=device-width, initial-scale=1"
   >
   <title>Chambit Menu</title>
-  <link rel="stylesheet" href="/static/css/site.css?v=blue-test-2">
+  <link rel="stylesheet" href="/static/css/site.css?v=notices-1">
+
 
   {% if ga_measurement_id %}
   <!-- Google tag (gtag.js) -->
@@ -37,7 +38,13 @@
         {{ display_date.strftime("%A, %B %-d, %Y") }}
         <span>KST</span>
       </p>
-    </header>
+  </header>
+
+  <section class="service-notices" aria-label="Service information">
+    <p> • Check out Lunch and Dinner from Monday to Friday. Breakfast is coming soon!</p>
+    <p> • Real meal photos may be uploaded during meal times.</p>
+  </section>
+
 
     <section aria-label="Lunch menu">
       <h2>Lunch</h2>
@@ -105,9 +112,48 @@
       {% endif %}
     </section>
 
+    <section class="dinner-section" aria-label="Dinner menu">
+          <h2>Dinner</h2>
+          <p class="service-time">17:30 – 19:00</p>
+          <p class="same-meal-note">
+            Same meal is served on both lines.
+          </p>
+
+          <div class="menu-card">
+            {% if dinner_entry %}
+              <h2>{{ dinner_entry.title }}</h2>
+
+              {% if dinner_entry.message %}
+                <p class="meal-message">{{ dinner_entry.message }}</p>
+              {% endif %}
+
+              <img
+                src="{{ dinner_entry.image_url }}"
+                alt="{% if dinner_entry.image_source == 'ai_generated' %}AI meal preview{% else %}Meal photo{% endif %} for Dinner, {{ display_date.strftime('%B %-d, %Y') }}."
+              >
+
+              {% if dinner_entry.image_source == "ai_generated" %}
+                <p class="notice">
+                  AI meal preview · Actual serving may vary.
+                </p>
+              {% endif %}
+
+              <ul>
+                {% for item in dinner_entry.menu_items %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <div class="empty">
+                <h2>Dinner menu is being prepared.</h2>
+                <p>Please check again soon.</p>
+              </div>
+            {% endif %}
+          </div>
+        </section>
+
     <footer class="public-footer">
       <p>AI meal previews are based on representative cafeteria meals.</p>
-      <p>Breakfast and Dinner will be available soon.</p>
     </footer>
   </main>
 
