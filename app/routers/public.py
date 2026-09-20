@@ -17,40 +17,45 @@ templates = Jinja2Templates(directory="app/templates")
 def public_menu_page(
     request: Request,
     line: str | None = Query(default=None),
+    breakfast_line: str | None = Query(default=None),
     db: Session = Depends(get_db),
 ):
     """
     Public page behavior:
-    - Uses today's KST date.
-    - Lunch has Left/Right lines.
+    - Breakfast and Lunch each have Left/Right line choices.
     - Dinner is one Shared-line meal.
-    - Only published records are exposed.
+    - Only published records are displayed.
+    - Service date is calculated in KST.
     """
     service_date = kst_today()
 
-    left_entry = published_for(
+    breakfast_left = published_for(
+        db=db,
+        service_date=service_date,
+        meal_period="BREAKFAST",
+        line_type="LEFT",
+    )
+
+    breakfast_right = published_for(
+        db=db,
+        service_date=service_date,
+        meal_period="BREAKFAST",
+        line_type="RIGHT",
+    )
+
+    lunch_left = published_for(
         db=db,
         service_date=service_date,
         meal_period="LUNCH",
         line_type="LEFT",
     )
 
-    right_entry = published_for(
+    lunch_right = published_for(
         db=db,
         service_date=service_date,
         meal_period="LUNCH",
         line_type="RIGHT",
     )
-
-    requested_line = (line or "").upper()
-
-    if requested_line == "RIGHT" and right_entry:
-        selected_entry = right_entry
-    elif requested_line == "LEFT" and left_entry:
-        selected_entry = left_entry
-    else:
-        # Default: Left Line first, otherwise the first available Lunch line.
-        selected_entry = left_entry or right_entry
 
     dinner_entry = published_for(
         db=db,
@@ -59,17 +64,46 @@ def public_menu_page(
         line_type="SHARED",
     )
 
+    requested_breakfast_line = (breakfast_line or "").upper()
+    if requested_breakfast_line == "RIGHT" and breakfast_right:
+        selected_breakfast = breakfast_right
+    elif requested_breakfast_line == "LEFT" and breakfast_left:
+        selected_breakfast = breakfast_left
+    else:
+        selected_breakfast = breakfast_left or breakfast_right
+
+    requested_lunch_line = (line or "").upper()
+    if requested_lunch_line == "RIGHT" and lunch_right:
+        selected_lunch = lunch_right
+    elif requested_lunch_line == "LEFT" and lunch_left:
+        selected_lunch = lunch_left
+    else:
+        selected_lunch = lunch_left or lunch_right
+
     return templates.TemplateResponse(
         request=request,
         name="public_index.html",
         context={
             "display_date": service_date,
-            "entry": public_entry(selected_entry) if selected_entry else None,
-            "dinner_entry": public_entry(dinner_entry) if dinner_entry else None,
-            "available_lines": {
-                "left": left_entry is not None,
-                "right": right_entry is not None,
+            "breakfast_entry": (
+                public_entry(selected_breakfast)
+                if selected_breakfast
+                else None
+            ),
+            "breakfast_available_lines": {
+                "left": breakfast_left is not None,
+                "right": breakfast_right is not None,
             },
+            "entry": public_entry(selected_lunch) if selected_lunch else None,
+            "available_lines": {
+                "left": lunch_left is not None,
+                "right": lunch_right is not None,
+            },
+            "dinner_entry": (
+                public_entry(dinner_entry)
+                if dinner_entry
+                else None
+            ),
             "ga_measurement_id": settings.ga_measurement_id,
         },
     )

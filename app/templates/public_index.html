@@ -46,14 +46,82 @@
   </section>
 
 
+    <section class="breakfast-section" aria-label="Breakfast menu">
+  <h2>Breakfast</h2>
+  <p class="service-time">07:30 – 09:00</p>
+
+  <div
+    class="switcher"
+    role="group"
+    aria-label="Select breakfast line"
+    data-meal-period="breakfast"
+  >
+    <button
+      type="button"
+      data-line="left"
+      aria-pressed="{{ 'true' if breakfast_entry and breakfast_entry.line_type == 'left' else 'false' }}"
+      {% if not breakfast_available_lines.left %}disabled{% endif %}
+    >
+      Left Line
+    </button>
+
+    <button
+      type="button"
+      data-line="right"
+      aria-pressed="{{ 'true' if breakfast_entry and breakfast_entry.line_type == 'right' else 'false' }}"
+      {% if not breakfast_available_lines.right %}disabled{% endif %}
+    >
+      Right Line
+    </button>
+  </div>
+
+  <section
+    id="breakfast-menu-card"
+    class="menu-card"
+    aria-live="polite"
+  >
+    {% if breakfast_entry %}
+      <h2 id="breakfast-menu-heading">{{ breakfast_entry.title }}</h2>
+
+      {% if breakfast_entry.message %}
+        <p class="meal-message">{{ breakfast_entry.message }}</p>
+      {% endif %}
+
+      <img
+        id="breakfast-menu-image"
+        src="{{ breakfast_entry.image_url }}"
+        alt="{% if breakfast_entry.image_source == 'ai_generated' %}AI meal preview{% else %}Meal photo{% endif %} for Breakfast, {{ breakfast_entry.line_type|title }} Line, {{ display_date.strftime('%B %-d, %Y') }}."
+      >
+
+      {% if breakfast_entry.image_source == "ai_generated" %}
+        <p class="notice">
+          AI meal preview · Actual serving may vary.
+        </p>
+      {% endif %}
+
+      <ul id="breakfast-menu-items">
+        {% for item in breakfast_entry.menu_items %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <div class="empty">
+        <h2>Breakfast menu is being prepared.</h2>
+        <p>Please check again soon.</p>
+      </div>
+    {% endif %}
+  </section>
+</section>
+
     <section aria-label="Lunch menu">
       <h2>Lunch</h2>
       <p class="service-time">11:45 – 13:45</p>
 
       <div
-        class="switcher"
-        role="group"
-        aria-label="Select food line"
+          class="switcher"
+          role="group"
+          aria-label="Select lunch line"
+          data-meal-period="lunch"
       >
         <button
           type="button"
@@ -157,6 +225,6 @@
     </footer>
   </main>
 
-  <script src="/static/js/menu.js"></script>
+  <script src="/static/js/menu.js?v=breakfast-1"></script>
 </body>
 </html>
