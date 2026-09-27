@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from app.config import settings
 from app.database import get_db
-from app.services.menus import kst_today, public_entry, published_for
+from app.services.menus import public_display_date, public_entry, published_for
 
 
 router = APIRouter()
@@ -27,7 +27,7 @@ def public_menu_page(
     - Only published records are displayed.
     - Service date is calculated in KST.
     """
-    service_date = kst_today()
+    service_date = public_display_date()
 
     breakfast_left = published_for(
         db=db,
