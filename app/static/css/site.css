@@ -401,3 +401,69 @@ a {
   margin: 4px 0;
 }
 
+
+/* Container Framework Layout & Styling */
+.welcome-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* Centers text and picture horizontally inside the box */
+  
+  /* Center the box on the website page */
+  margin: 0 auto 30px auto; /* "0 auto" centers the entire framework block horizontally */
+  
+  /* Fixed frame dimensions */
+  width: 320px;           /* Adjust width to fit your layout */
+  height: 320px;          /* Adjust height to fit all content */
+  
+  /* Spacing control inside the frame */
+  padding-top: 10px;      /* 1. Space between top of box and the slogan */
+  padding-bottom: 10px;   /* 3. Space between bottom of picture and bottom of box */
+  box-sizing: border-box; /* Prevents padding from breaking fixed width/height */
+  
+  overflow: hidden;
+
+  border: 3px solid #15803d; /* Rich dark green border (Emerald Green) */
+  border-radius: 16px;
+  background: var(--paper);
+
+  /* Subtle green glow shadow for extra emphasis */
+  box-shadow: 0 4px 14px rgba(21, 128, 61, 0.2);
+}
+
+.welcome-text {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;    /* 2. Space between slogan and top of the picture */
+
+  /* LEFT & RIGHT SPACING FOR SLOGAN */
+  padding-left: 5px;       /* Keeps text away from the left border */
+  padding-right: 5px;      /* Keeps text away from the right border */
+  box-sizing: border-box;   /* Ensures padding stays inside the box width */
+}
+
+.welcome-text p {
+  margin: 0;              /* Clears default browser paragraph margins */
+}
+
+/* Base Image Rules */
+img.fit-cover {
+  object-fit: cover !important;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Image Size Options */
+img.img-sq {
+  width: 250px !important;
+  height: 250px !important;
+}
+
+img.img-hr {
+  width: 270px !important;
+  height: 240px !important;
+}
+
+img.img-vt {
+  width: 170px !important;
+  height: 250px !important;
+}
