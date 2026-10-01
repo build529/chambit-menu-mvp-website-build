@@ -42,7 +42,6 @@
 
   <section class="service-notices" aria-label="Service information">
     <p><strong> Check Your Meals in Advance! </strong>Content Updates Daily at 7 PM!</p> 
-    <p>Real meal photos may be uploaded during meal times.</p>
 </section>
     <!--
     <p><strong>Chuseok Holiday Notice</strong></p> 
@@ -50,28 +49,37 @@
 Meal service will resume on Monday, September 28.</p>
   
     -->
-    
-
-<!-- ADVERTISEMENT ANNOUNCEMENT FRAMEWORK -->
-<section class="welcome-image" aria-label="Restaurant Advertisement">
   
-  <!-- Text Section (Title / Slogan) -->
-  <div class="welcome-text">
-    <p><strong>🍚 Hungry? Just Head Downstairs!</strong> Click to See the Menu →</p>
-  </div>
+
+
+<!-- WIDE HORIZONTAL AD BANNER -->
+<section class="ad-wide-banner" aria-label="Restaurant Special Offer">
+  
+  <!-- SPONSORED BADGE -->
+  <span class="ad-tag">SPONSORED</span>
+
+  <!-- LEFT SIDE: Text, Offer Slogan, & CTA -->
+  <div class="ad-content-left">
+    <h3 class="ad-heading">Students Get Free Soda!</h3>
+    <p class="ad-subtext">Show banner at Morak Restaurant</p>
     
-  <!-- Image Container with Link -->
-  <a href="https://linktr.ee/MORAK6895?utm_source=qr_code"
-     target="_blank" 
-     rel="noopener"
-     onclick="gtag('event', 'ad_click', {
-       'content_id': 'morak_banner',
-       'button_name': 'top_banner'
-    });">
-    <img src="/static/images/morak-01.jpg" 
-         alt="Menu Special Offer" 
-         class="fit-cover img-hr">
-  </a>
+    <!-- Action Link / Button -->"
+    <a href="https://linktr.ee/MORAK6895?utm_source=qr_code" 
+       target="_blank" 
+       rel="noopener" 
+       onclick="gtag('event', 'ad_click', { 'content_id': 'morak_wide_banner' });" 
+       class="ad-cta-btn">
+       View Menu & Coupon →
+    </a>
+  </div>
+
+  <!-- RIGHT SIDE: Compact Square Image -->
+  <div class="ad-content-right">
+    <a href="https://linktr.ee/MORAK6895?utm_source=qr_code" target="_blank" rel="noopener">
+      <img src="/static/images/morak-03.png" alt="Morak Special Deal" class="ad-img-thumb">
+    </a>
+  </div>
+
 </section>
 
 
