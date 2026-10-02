@@ -1,5 +1,5 @@
 import json
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from zoneinfo import ZoneInfo
 
 from fastapi import HTTPException
@@ -15,6 +15,16 @@ KST = ZoneInfo("Asia/Seoul")
 def kst_today() -> date:
     """Return today's calendar date in Korea Standard Time."""
     return datetime.now(KST).date()
+
+
+def public_display_date() -> date:
+    """Show tomorrow's meals from 7:00 PM KST onward."""
+    now = datetime.now(KST)
+
+    if now.hour >= 19:
+        return now.date() + timedelta(days=1)
+
+    return now.date()
 
 
 def normalize_items(raw: str) -> list[str]:
