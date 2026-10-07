@@ -495,3 +495,55 @@ a {
   border-radius: 8px;
   display: block;
 }
+
+
+
+
+/* OPERATING HOURS & LIVE STATUS CONTAINER */
+.operating-hours-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+  font-size: 13px;
+}
+
+/* STATUS BADGE LAYOUT */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* BASE DOT STYLES */
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* OPEN (GREEN) WITH GLOW EFFECT */
+.dot.open {
+  background-color: #16a34a;
+  box-shadow: 0 0 8px rgba(22, 163, 74, 0.8);
+}
+
+.status-indicator .text-open {
+  color: #15803d;
+}
+
+/* CLOSED (RED) WITH GLOW EFFECT */
+.dot.closed {
+  background-color: #dc2626;
+  box-shadow: 0 0 8px rgba(220, 38, 38, 0.8);
+}
+
+.status-indicator .text-closed {
+  color: #b91c1c;
+}
