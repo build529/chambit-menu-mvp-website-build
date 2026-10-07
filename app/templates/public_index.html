@@ -7,7 +7,7 @@
     content="width=device-width, initial-scale=1"
   >
   <title>Chambit Menu</title>
-  <link rel="stylesheet" href="/static/css/site.css?v=welcome-image-1">
+  <link rel="stylesheet" href="/static/css/site.css?v=hours-text-01">
 
 
   {% if ga_measurement_id %}
@@ -57,21 +57,21 @@ Meal service will resume on Monday, September 28.</p>
   <!-- SPONSORED BADGE -->
   <span class="ad-tag">SPONSORED</span>
 
+  <!-- TOP HORIZONTAL ROW (LEFT + RIGHT CONTAINERS) -->
+  <div class="ad-body">
+
   <!-- LEFT SIDE: Text, Offer Slogan, & CTA -->
   <div class="ad-content-left">
     <h3 class="ad-heading">Delicious & Heartwarming Korean food!</h3>
-    <p class="ad-subtext">Made just for you!</p>
+    <!--<p class="ad-subtext">Made just for you!</p>-->
+    <div style="height: 5px;"></div>
 
-      <!-- LIVE RESTAURANT STATUS INDICATOR -->
-  <div class="operating-hours-container">
-    <div class="status-indicator">
-      <span id="status-dot" class="dot closed"></span>
-      <span id="status-text" class="status-text">CLOSED</span>
-    </div>
-    <p class="hours-text">
-      ⏰ Operating Hours: <strong>11:00 AM – 8:00 PM</strong> (Mon–Fri)
-    </p>
-  </div>
+    <!-- HORIZONTAL ROW: LIVE STATUS BADGE + CTA BUTTON -->
+  <div class="ad-cta-row">
+      <div class="status-indicator">
+        <span id="status-dot" class="dot closed"></span>
+        <span id="status-text" class="status-text">CLOSED</span>
+      </div>
     
     <!-- Action Link / Button -->
     <a href="https://linktr.ee/MORAK6895?utm_source=qr_code" 
@@ -82,6 +82,7 @@ Meal service will resume on Monday, September 28.</p>
        View The Menu ->
     </a>
   </div>
+</div>
 
   <!-- RIGHT SIDE: Compact Square Image -->
   <div class="ad-content-right">
@@ -89,6 +90,21 @@ Meal service will resume on Monday, September 28.</p>
       <img src="/static/images/morak-03.png" alt="Morak Special Deal" class="ad-img-thumb">
     </a>
   </div>
+
+  </div>
+
+  <!-- BOTTOM VERTICAL ROW: OPERATING HOURS (FULL WIDTH UNDERNEATH) -->
+  <div class="operating-hours-container">
+    
+    <!-- MULTI-LINE OPERATING HOURS TEXT -->
+    <div class="hours-text">
+        <p>⏰ <strong>Mon–Sun:</strong> 10:00 AM – 8:00 PM <em>(Last Order: 7:30 PM)</em></p>
+        <p>⏸️ <strong>Weekend Break Time:</strong> 3:00 PM – 5:00 PM <em>(Sat &amp; Sun)</em></p>
+      </div>
+
+  </div>
+
+
 
 </section>
 
@@ -162,22 +178,40 @@ Meal service will resume on Monday, September 28.</p>
 
 <div style="height: 40px;"></div>
 
-<!-- ADVERTISEMENT ANNOUNCEMENT FRAMEWORK -->
-<!-- 
-  <section class="welcome-image" aria-label="Restaurant Advertisement">
+<!-- TEMPORARILY DISABLED MIDDLE BANNER (Qaysar Qaynarr - Uzbek Restaurant) -->
+<template>
+
+  <!-- WIDE HORIZONTAL AD BANNER -->
+  <section class="ad-wide-banner" aria-label="Restaurant Special Offer">
     
-    <div class="welcome-text">
-      <p><strong>🍔 Craving a Burger?</strong> Click to See the Menu!</p>
-    </div>
+    <!-- SPONSORED BADGE -->
+    <span class="ad-tag">SPONSORED</span>
+
+    <!-- LEFT SIDE: Text, Offer Slogan, & CTA -->
+    <div class="ad-content-left">
+      <h3 class="ad-heading">Qaysar Qaynarr Uzbek Cuisine!</h3>
+      <p class="ad-subtext">Authentic Central Asian Flavors!</p>
       
-    <a href="https://linktr.ee/josecla21" target="_blank" rel="noopener">
-      <img src="/static/images/burger-blaze.jpg" 
-          alt="Dorothy Menu Special Offer" 
-          class="fit-cover img-hr">
-    </a>
+      <!-- Action Link / Button -->
+      <a href="https://your-restaurant-link.com" 
+         target="_blank" 
+         rel="noopener" 
+         onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'qaysar_qaynarr' });" 
+         class="ad-cta-btn">
+         View The Menu -&gt;
+      </a>
+    </div>
+
+    <!-- RIGHT SIDE: Compact Square Image -->
+    <div class="ad-content-right">
+      <a href="https://your-restaurant-link.com" target="_blank" rel="noopener">
+        <img src="/static/images/qaysar-qaynarr.png" alt="Qaysar Qaynarr Special Deal" class="ad-img-thumb">
+      </a>
+    </div>
 
   </section>
--->
+
+</template>
 
     <section aria-label="Lunch menu">
       <h2>Lunch</h2>
@@ -248,23 +282,40 @@ Meal service will resume on Monday, September 28.</p>
 
     <div style="height: 40px;"></div>
 
-    <!-- ADVERTISEMENT ANNOUNCEMENT FRAMEWORK -->
-     <!--
-<section class="welcome-image" aria-label="Restaurant Advertisement">
-  
- 
-  <div class="welcome-text">
-    <p><strong>Still hungry?</strong> Check this out!</p>
-  </div>
+<!-- TEMPORARILY DISABLED BOTTOM BANNER (Pizza Place) -->
+<template>
+
+  <!-- WIDE HORIZONTAL AD BANNER -->
+  <section class="ad-wide-banner" aria-label="Restaurant Special Offer">
     
-  
-  <a href="https://naver.me/FnszpzQJ" target="_blank" rel="noopener">
-    <img src="/static/images/aromimasil.jpg" 
-         alt="Dorothy Menu Special Offer" 
-         class="fit-cover img-sq">
-  </a>
-</section>
--->
+    <!-- SPONSORED BADGE -->
+    <span class="ad-tag">SPONSORED</span>
+
+    <!-- LEFT SIDE: Text, Offer Slogan, & CTA -->
+    <div class="ad-content-left">
+      <h3 class="ad-heading">Hot &amp; Fresh Pizza Place!</h3>
+      <p class="ad-subtext">Best Slices Around Campus!</p>
+      
+      <!-- Action Link / Button -->
+      <a href="https://your-restaurant-link.com" 
+         target="_blank" 
+         rel="noopener" 
+         onclick="gtag('event', 'ad_click', { 'slot_location': 'bottom_banner', 'sponsor_name': 'pizza_place' });" 
+         class="ad-cta-btn">
+         View The Menu -&gt;
+      </a>
+    </div>
+
+    <!-- RIGHT SIDE: Compact Square Image -->
+    <div class="ad-content-right">
+      <a href="https://your-restaurant-link.com" target="_blank" rel="noopener">
+        <img src="/static/images/pizza-place.png" alt="Pizza Place Special Deal" class="ad-img-thumb">
+      </a>
+    </div>
+
+  </section>
+
+</template>
 
 
     <section class="dinner-section" aria-label="Dinner menu">
@@ -313,6 +364,6 @@ Meal service will resume on Monday, September 28.</p>
   </main>
 
   <script src="/static/js/menu.js?v=breakfast-1"></script>
-  <script src="/static/js/restaurant-status.js"></script>
+  <script src="/static/js/morak-status.js"></script>
 </body>
 </html>
