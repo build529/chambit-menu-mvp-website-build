@@ -51,58 +51,130 @@ Meal service will resume on Monday, September 28.</p>
     -->
   
 
-<!-- WIDE HORIZONTAL AD BANNER -->
-<section class="ad-wide-banner" aria-label="Restaurant Special Offer">
+<!-- TOP BANNER AD CAROUSEL CONTAINER -->
+<div class="ad-carousel-container" aria-label="Featured Restaurant Announcements">
   
-  <!-- SPONSORED BADGE -->
-  <span class="ad-tag">SPONSORED</span>
-
-  <!-- TOP HORIZONTAL ROW (LEFT + RIGHT CONTAINERS) -->
-  <div class="ad-body">
-
-  <!-- LEFT SIDE: Text, Offer Slogan, & CTA -->
-  <div class="ad-content-left">
-    <h3 class="ad-heading">Delicious & Heartwarming Korean food!</h3>
-    <!--<p class="ad-subtext">Made just for you!</p>-->
-    <div style="height: 5px;"></div>
-
-    <!-- HORIZONTAL ROW: LIVE STATUS BADGE + CTA BUTTON -->
-  <div class="ad-cta-row">
-      <div class="status-indicator">
-        <span id="status-dot" class="dot closed"></span>
-        <span id="status-text" class="status-text">CLOSED</span>
-      </div>
+  <!-- SCROLLABLE CAROUSEL TRACK -->
+  <div class="ad-carousel-track" id="top-banner-carousel">
     
-    <!-- Action Link / Button -->
-    <a href="https://linktr.ee/MORAK6895?utm_source=qr_code" 
-       target="_blank" 
-       rel="noopener" 
-       onclick="gtag('event', 'ad_click', { 'content_id': 'morak_wide_banner' });" 
-       class="ad-cta-btn">
-       View The Menu ->
-    </a>
+    <!-- STORE 1: Morak Restaurant -->
+    <section class="ad-wide-banner ad-slide" data-slide-index="0">
+      <span class="ad-tag">SPONSORED</span>
+      <div style="height: 5px;"></div>
+      <div class="ad-body">
+        <div class="ad-content-left">
+          <h3 class="ad-heading">Delicious &amp; Heartwarming Korean food!</h3>
+          <p class="ad-subtext">Made just for you!</p>
+          <div class="ad-cta-row">
+            <div class="status-indicator" data-schedule="morak">
+              <span class="dot status-dot closed"></span>
+              <span class="status-text text-closed">CLOSED</span>
+            </div>
+            <a href="https://linktr.ee/MORAK6895?utm_source=qr_code" 
+               target="_blank" 
+               rel="noopener" 
+               onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'morak_restaurant' });" 
+               class="ad-cta-btn">
+               View The Menu -&gt;
+            </a>
+          </div>
+        </div>
+        <div class="ad-content-right">
+          <a href="https://linktr.ee/MORAK6895?utm_source=qr_code" target="_blank" rel="noopener">
+            <img src="/static/images/morak-03.png" alt="Morak Special Deal" class="ad-img-thumb">
+          </a>
+        </div>
+      </div>
+      <div class="operating-hours-container">
+        <div class="hours-text">
+          <p>⏰ <strong>Mon–Sun:</strong> 10:00 AM – 8:00 PM <em>(Last Order: 7:30 PM)</em></p>
+          <p>⏸️ <strong>Weekend Break Time:</strong> 3:00 PM – 5:00 PM <em>(Sat &amp; Sun)</em></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORE 2: Istanbul Kebab House -->
+    <section class="ad-wide-banner ad-slide" data-slide-index="1">
+      <span class="ad-tag">SPONSORED</span>
+      <div style="height: 5px;"></div>
+      <div class="ad-body">
+        <div class="ad-content-left">
+          <h3 class="ad-heading">Authentic Turkish Kebabs!</h3>
+          <p class="ad-subtext">Juicy Halal Wraps — Exclusive Student Combo Deal!</p>
+          <div class="ad-cta-row">
+            <div class="status-indicator" data-schedule="qaysar">
+              <span class="dot status-dot closed"></span>
+              <span class="status-text text-closed">CLOSED</span>
+            </div>
+            <a href="https://place.map.kakao.com/9472114?fromAppLink=true" 
+               target="_blank" 
+               rel="noopener" 
+               onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'qaysar_qaynarr' });" 
+               class="ad-cta-btn">
+               View The Menu -&gt;
+            </a>
+          </div>
+        </div>
+        <div class="ad-content-right">
+          <a href="https://place.map.kakao.com/9472114?fromAppLink=true" target="_blank" rel="noopener">
+            <img src="/static/images/kebab-idea-store.png" alt="Qaysar Qaynarr Special Deal" class="ad-img-thumb">
+          </a>
+        </div>
+      </div>
+      <div class="operating-hours-container">
+        <div class="hours-text">
+          <p>⏰ <strong>Mon–Sun:</strong> 11:00 AM – 9:00 PM <em>(Last Order: 8:30 PM)</em></p>
+          <p>⏸️ <strong>No Break Time</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORE 3: Campus Pizza Place -->
+    <section class="ad-wide-banner ad-slide" data-slide-index="2">
+      <span class="ad-tag">SPONSORED</span>
+      <div style="height: 5px;"></div>
+      <div class="ad-body">
+        <div class="ad-content-left">
+          <h3 class="ad-heading">Hot &amp; Fresh Campus Pizza!</h3>
+          <p class="ad-subtext">Best Slices Around Campus!</p>
+          <div class="ad-cta-row">
+            <div class="status-indicator" data-schedule="pizza">
+              <span class="dot status-dot closed"></span>
+              <span class="status-text text-closed">CLOSED</span>
+            </div>
+            <a href="https://gopizza.kr/menu" 
+               target="_blank" 
+               rel="noopener" 
+               onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'pizza_place' });" 
+               class="ad-cta-btn">
+               View The Menu -&gt;
+            </a>
+          </div>
+        </div>
+        <div class="ad-content-right">
+          <a href="https://gopizza.kr/menu" target="_blank" rel="noopener">
+            <img src="/static/images/pizza-idea-store.png" alt="Pizza Place Special Deal" class="ad-img-thumb">
+          </a>
+        </div>
+      </div>
+      <div class="operating-hours-container">
+        <div class="hours-text">
+          <p>⏰ <strong>Mon–Sat:</strong> 11:30 AM – 10:00 PM <em>(Last Order: 9:30 PM)</em></p>
+          <p>⏸️ <strong>Closed on Sundays</strong></p>
+        </div>
+      </div>
+    </section>
+
   </div>
+
+  <!-- CAROUSEL PAGINATION DOTS -->
+  <div class="ad-carousel-dots" id="top-banner-dots">
+    <span class="carousel-dot active" data-index="0"></span>
+    <span class="carousel-dot" data-index="1"></span>
+    <span class="carousel-dot" data-index="2"></span>
+  </div>
+
 </div>
-
-  <!-- RIGHT SIDE: Compact Square Image -->
-  <div class="ad-content-right">
-    <a href="https://linktr.ee/MORAK6895?utm_source=qr_code" target="_blank" rel="noopener">
-      <img src="/static/images/morak-03.png" alt="Morak Special Deal" class="ad-img-thumb">
-    </a>
-  </div>
-
-  </div>
-
-  <!-- BOTTOM VERTICAL ROW: OPERATING HOURS (FULL WIDTH UNDERNEATH) -->
-  <div class="operating-hours-container">
-    
-    <!-- MULTI-LINE OPERATING HOURS TEXT -->
-    <div class="hours-text">
-        <p>⏰ <strong>Mon–Sun:</strong> 10:00 AM – 8:00 PM <em>(Last Order: 7:30 PM)</em></p>
-        <p>⏸️ <strong>Weekend Break Time:</strong> 3:00 PM – 5:00 PM <em>(Sat &amp; Sun)</em></p>
-      </div>
-
-  </div>
 
 
 
@@ -365,5 +437,7 @@ Meal service will resume on Monday, September 28.</p>
 
   <script src="/static/js/menu.js?v=breakfast-1"></script>
   <script src="/static/js/morak-status.js"></script>
+  <script src="/static/js/restaurant-status.js"></script>
+  <script src="/static/js/carousel.js"></script>
 </body>
 </html>

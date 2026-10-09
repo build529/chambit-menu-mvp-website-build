@@ -576,3 +576,65 @@ a {
 .status-indicator .text-closed {
   color: #b91c1c;
 }
+
+
+/* ==========================================================================
+   CAROUSEL CONTAINER & SCROLL SNAP
+   ========================================================================== */
+
+.ad-carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 15px auto 20px auto;
+}
+
+/* SCROLL TRACK WITH CSS SCROLL SNAP */
+.ad-carousel-track {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+}
+
+.ad-carousel-track::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+/* CAROUSEL SLIDE ITEM OVERRIDES */
+.ad-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  box-sizing: border-box;
+  margin: 0 !important;
+}
+
+/* PAGINATION DOTS */
+.ad-carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #d1d5db;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel-dot.active {
+  background-color: #15803d; /* Dark Emerald Green */
+  width: 18px;
+  border-radius: 4px;
+}
