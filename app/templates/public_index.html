@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chambit Menu</title>
-  <link rel="stylesheet" href="/static/css/site.css?v=ad-carousel-container-01">
+  <link rel="stylesheet" href="/static/css/site.css?v=ad-full-banner-img-01">
 
   {% if ga_measurement_id %}
   <!-- Google tag (gtag.js) -->
@@ -76,47 +76,57 @@
           </div>
         </section>
 
-        <!-- STORE 2: Istanbul Kebab House -->
-        <section class="ad-wide-banner ad-slide" data-slide-index="1" data-sponsor="istanbul_kebab">
+        <!-- TOP - STORE 2 -->
+        <section class="ad-wide-banner ad-slide" data-slide-index="1" data-sponsor="mymy_chicken">
           <span class="ad-tag">SPONSORED</span>
           <div style="height: 5px;"></div>
           <div class="ad-body">
             <div class="ad-content-left">
-              <h3 class="ad-heading">Authentic Turkish Kebabs!</h3>
-              <p class="ad-subtext">Juicy Halal Wraps — Exclusive Student Combo Deal!</p>
+              <h3 class="ad-heading">When chicken calls, make it MYMY!</h3>
+              <p class="ad-subtext">Make the moment crispy!</p>
               <div class="ad-cta-row">
-                <div class="status-indicator" data-schedule="kebab">
+            <!--
+                <div class="status-indicator" data-schedule="chicken">
                   <span class="dot status-dot closed"></span>
                   <span class="status-text text-closed">CLOSED</span>
                 </div>
-                <a href="https://place.map.kakao.com/9472114?fromAppLink=true" 
+              -->
+                <div style="height: 10px;"></div>
+          
+                <a href="https://place.map.kakao.com/26942693?fromAppLink=true" 
                    target="_blank" 
                    rel="noopener" 
-                   onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'istanbul_kebab' });" 
+                   onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'mymy_chicken' });" 
                    class="ad-cta-btn">
                    View The Menu -&gt;
                 </a>
+                <div style="height: 10px;"></div>
               </div>
             </div>
             <div class="ad-content-right">
-              <a href="https://place.map.kakao.com/9472114?fromAppLink=true" 
+              <a href="https://www.instagram.com/mymyjbnu" 
                  target="_blank" 
                  rel="noopener"
                  onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'istanbul_kebab' });">
-                <img src="/static/images/kebab-idea-store.png" alt="Qaysar Qaynarr Special Deal" class="ad-img-thumb">
+                <img src="/static/images/mymy_chicken_logo.jpg" alt="MYMY Chicken" class="ad-img-thumb">
               </a>
             </div>
           </div>
+
+          
           <div class="operating-hours-container">
             <div class="hours-text">
-              <p>⏰ <strong>Mon–Sun:</strong> 11:00 AM – 9:00 PM <em>(Last Order: 8:30 PM)</em></p>
+              <p>⏰ <strong>Mon–Sun:</strong> 4:00 PM – 2:00 AM <em>(Last Order: 1:30 AM)</em></p>
               <p>⏸️ <strong>No Break Time</strong></p>
             </div>
           </div>
+    
+
         </section>
 
         <!-- STORE 3: Campus Pizza Place -->
         <section class="ad-wide-banner ad-slide" data-slide-index="2" data-sponsor="pizza_place">
+          <!--
           <span class="ad-tag">SPONSORED</span>
           <div style="height: 5px;"></div>
           <div class="ad-body">
@@ -152,6 +162,10 @@
               <p>⏸️ <strong>Closed on Sundays</strong></p>
             </div>
           </div>
+        -->
+        <img src="/static/images/default-banner.png" 
+       alt="Interested in advertising? Contact us!" 
+       class="ad-full-banner-img">
         </section>
 
       </div>
@@ -202,6 +216,7 @@
     <div style="height: 40px;"></div>
 
     <!-- MIDDLE BANNER AD CAROUSEL CONTAINER -->
+  <template>
     <div class="ad-carousel-container" aria-label="Featured Restaurant Announcements - Middle Banner">
       <div class="ad-carousel-track" id="middle-banner-carousel">
         
@@ -331,6 +346,7 @@
         <span class="carousel-dot" data-index="2"></span>
       </div>
     </div>
+  </template>
 
     <!-- LUNCH SECTION -->
     <section aria-label="Lunch menu">
@@ -370,6 +386,7 @@
     <div style="height: 40px;"></div>
 
     <!-- BOTTOM BANNER AD CAROUSEL CONTAINER -->
+  <template>
     <div class="ad-carousel-container" aria-label="Featured Restaurant Announcements - Bottom Banner">
       <div class="ad-carousel-track" id="bottom-banner-carousel">
         
@@ -499,6 +516,7 @@
         <span class="carousel-dot" data-index="2"></span>
       </div>
     </div>
+  </template>
 
     <!-- DINNER SECTION -->
     <section class="dinner-section" aria-label="Dinner menu">
@@ -534,7 +552,7 @@
 
   <script src="/static/js/menu.js?v=breakfast-1"></script>
   <script src="/static/js/morak-status.js"></script>
-  <script src="/static/js/restaurant-status.js"></script>
+  <script src="/static/js/restaurant-status.js?v=v1-test"></script>
   <script src="/static/js/carousel.js?v=v4-test"></script>
 </body>
 </html>

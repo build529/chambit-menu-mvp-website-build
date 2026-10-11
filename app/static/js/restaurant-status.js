@@ -53,7 +53,7 @@ function updateRestaurantStatus() {
       text.className = 'status-text text-open';
     } else if (currentTimeInMinutes >= lastOrderCutoff && currentTimeInMinutes < closeTime) {
       dot.className = 'dot status-dot closed';
-      text.textContent = 'NO MORE ORDERS';
+      text.textContent = 'NO ORDERS';
       text.className = 'status-text text-closed';
     } else {
       dot.className = 'dot status-dot closed';
