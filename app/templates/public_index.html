@@ -2,31 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chambit Menu</title>
-  <link rel="stylesheet" href="/static/css/site.css?v=hours-text-01">
-
+  <link rel="stylesheet" href="/static/css/site.css?v=ad-carousel-container-01">
 
   {% if ga_measurement_id %}
   <!-- Google tag (gtag.js) -->
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id={{ ga_measurement_id }}"
-  ></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ ga_measurement_id }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
+    function gtag() { dataLayer.push(arguments); }
     gtag("js", new Date());
     gtag("config", "{{ ga_measurement_id }}");
   </script>
-{% endif %}
+  {% endif %}
 </head>
 
 <body data-date="{{ display_date.isoformat() }}">
@@ -38,307 +27,333 @@
         {{ display_date.strftime("%A, %B %-d, %Y") }}
         <span>KST</span>
       </p>
-  </header>
+    </header>
 
-  <section class="service-notices" aria-label="Service information">
-    <p><strong> Check Your Meals in Advance! </strong>Content Updates Daily at 7 PM!</p> 
-</section>
-    <!--
-    <p><strong>Chuseok Holiday Notice</strong></p> 
-    <p> Due to the Chuseok holiday, no meals will be served from Thursday, September 24 through Sunday, September 27.
-Meal service will resume on Monday, September 28.</p>
-  
-    -->
-  
-
-<!-- TOP BANNER AD CAROUSEL CONTAINER -->
-<div class="ad-carousel-container" aria-label="Featured Restaurant Announcements">
-  
-  <!-- SCROLLABLE CAROUSEL TRACK -->
-  <div class="ad-carousel-track" id="top-banner-carousel">
-    
-    <!-- STORE 1: Morak Restaurant -->
-    <section class="ad-wide-banner ad-slide" data-slide-index="0">
-      <span class="ad-tag">SPONSORED</span>
-      <div style="height: 5px;"></div>
-      <div class="ad-body">
-        <div class="ad-content-left">
-          <h3 class="ad-heading">Delicious &amp; Heartwarming Korean food!</h3>
-          <p class="ad-subtext">Made just for you!</p>
-          <div class="ad-cta-row">
-            <div class="status-indicator" data-schedule="morak">
-              <span class="dot status-dot closed"></span>
-              <span class="status-text text-closed">CLOSED</span>
-            </div>
-            <a href="https://linktr.ee/MORAK6895?utm_source=qr_code" 
-               target="_blank" 
-               rel="noopener" 
-               onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'morak_restaurant' });" 
-               class="ad-cta-btn">
-               View The Menu -&gt;
-            </a>
-          </div>
-        </div>
-        <div class="ad-content-right">
-          <a href="https://linktr.ee/MORAK6895?utm_source=qr_code" target="_blank" rel="noopener">
-            <img src="/static/images/morak-03.png" alt="Morak Special Deal" class="ad-img-thumb">
-          </a>
-        </div>
-      </div>
-      <div class="operating-hours-container">
-        <div class="hours-text">
-          <p>⏰ <strong>Mon–Sun:</strong> 10:00 AM – 8:00 PM <em>(Last Order: 7:30 PM)</em></p>
-          <p>⏸️ <strong>Weekend Break Time:</strong> 3:00 PM – 5:00 PM <em>(Sat &amp; Sun)</em></p>
-        </div>
-      </div>
+    <section class="service-notices" aria-label="Service information">
+      <p><strong> Check Your Meals in Advance! </strong>Content Updates Daily at 7 PM!</p> 
     </section>
 
-    <!-- STORE 2: Istanbul Kebab House -->
-    <section class="ad-wide-banner ad-slide" data-slide-index="1">
-      <span class="ad-tag">SPONSORED</span>
-      <div style="height: 5px;"></div>
-      <div class="ad-body">
-        <div class="ad-content-left">
-          <h3 class="ad-heading">Authentic Turkish Kebabs!</h3>
-          <p class="ad-subtext">Juicy Halal Wraps — Exclusive Student Combo Deal!</p>
-          <div class="ad-cta-row">
-            <div class="status-indicator" data-schedule="qaysar">
-              <span class="dot status-dot closed"></span>
-              <span class="status-text text-closed">CLOSED</span>
+    <!-- TOP BANNER AD CAROUSEL CONTAINER -->
+    <div class="ad-carousel-container" aria-label="Featured Restaurant Announcements">
+      <div class="ad-carousel-track" id="top-banner-carousel">
+        
+        <!-- STORE 1: Morak Restaurant -->
+        <section class="ad-wide-banner ad-slide" data-slide-index="0" data-sponsor="morak_restaurant">
+          <span class="ad-tag">SPONSORED</span>
+          <div style="height: 5px;"></div>
+          <div class="ad-body">
+            <div class="ad-content-left">
+              <h3 class="ad-heading">Delicious &amp; Heartwarming Korean food!</h3>
+              <p class="ad-subtext">Made just for you!</p>
+              <div class="ad-cta-row">
+                <div class="status-indicator" data-schedule="morak">
+                  <span class="dot status-dot closed"></span>
+                  <span class="status-text text-closed">CLOSED</span>
+                </div>
+                <a href="https://linktr.ee/MORAK6895?utm_source=qr_code" 
+                   target="_blank" 
+                   rel="noopener" 
+                   onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'morak_restaurant' });" 
+                   class="ad-cta-btn">
+                   View The Menu -&gt;
+                </a>
+              </div>
             </div>
-            <a href="https://place.map.kakao.com/9472114?fromAppLink=true" 
-               target="_blank" 
-               rel="noopener" 
-               onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'qaysar_qaynarr' });" 
-               class="ad-cta-btn">
-               View The Menu -&gt;
-            </a>
-          </div>
-        </div>
-        <div class="ad-content-right">
-          <a href="https://place.map.kakao.com/9472114?fromAppLink=true" target="_blank" rel="noopener">
-            <img src="/static/images/kebab-idea-store.png" alt="Qaysar Qaynarr Special Deal" class="ad-img-thumb">
-          </a>
-        </div>
-      </div>
-      <div class="operating-hours-container">
-        <div class="hours-text">
-          <p>⏰ <strong>Mon–Sun:</strong> 11:00 AM – 9:00 PM <em>(Last Order: 8:30 PM)</em></p>
-          <p>⏸️ <strong>No Break Time</strong></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- STORE 3: Campus Pizza Place -->
-    <section class="ad-wide-banner ad-slide" data-slide-index="2">
-      <span class="ad-tag">SPONSORED</span>
-      <div style="height: 5px;"></div>
-      <div class="ad-body">
-        <div class="ad-content-left">
-          <h3 class="ad-heading">Hot &amp; Fresh Campus Pizza!</h3>
-          <p class="ad-subtext">Best Slices Around Campus!</p>
-          <div class="ad-cta-row">
-            <div class="status-indicator" data-schedule="pizza">
-              <span class="dot status-dot closed"></span>
-              <span class="status-text text-closed">CLOSED</span>
+            <div class="ad-content-right">
+              <a href="https://linktr.ee/MORAK6895?utm_source=qr_code" 
+                 target="_blank" 
+                 rel="noopener"
+                 onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'morak_restaurant' });">
+                <img src="/static/images/morak-03.png" alt="Morak Special Deal" class="ad-img-thumb">
+              </a>
             </div>
-            <a href="https://gopizza.kr/menu" 
-               target="_blank" 
-               rel="noopener" 
-               onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'pizza_place' });" 
-               class="ad-cta-btn">
-               View The Menu -&gt;
-            </a>
           </div>
-        </div>
-        <div class="ad-content-right">
-          <a href="https://gopizza.kr/menu" target="_blank" rel="noopener">
-            <img src="/static/images/pizza-idea-store.png" alt="Pizza Place Special Deal" class="ad-img-thumb">
-          </a>
-        </div>
+          <div class="operating-hours-container">
+            <div class="hours-text">
+              <p>⏰ <strong>Mon–Sun:</strong> 10:00 AM – 8:00 PM <em>(Last Order: 7:30 PM)</em></p>
+              <p>⏸️ <strong>Weekend Break Time:</strong> 3:00 PM – 5:00 PM <em>(Sat &amp; Sun)</em></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- STORE 2: Istanbul Kebab House -->
+        <section class="ad-wide-banner ad-slide" data-slide-index="1" data-sponsor="istanbul_kebab">
+          <span class="ad-tag">SPONSORED</span>
+          <div style="height: 5px;"></div>
+          <div class="ad-body">
+            <div class="ad-content-left">
+              <h3 class="ad-heading">Authentic Turkish Kebabs!</h3>
+              <p class="ad-subtext">Juicy Halal Wraps — Exclusive Student Combo Deal!</p>
+              <div class="ad-cta-row">
+                <div class="status-indicator" data-schedule="kebab">
+                  <span class="dot status-dot closed"></span>
+                  <span class="status-text text-closed">CLOSED</span>
+                </div>
+                <a href="https://place.map.kakao.com/9472114?fromAppLink=true" 
+                   target="_blank" 
+                   rel="noopener" 
+                   onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'istanbul_kebab' });" 
+                   class="ad-cta-btn">
+                   View The Menu -&gt;
+                </a>
+              </div>
+            </div>
+            <div class="ad-content-right">
+              <a href="https://place.map.kakao.com/9472114?fromAppLink=true" 
+                 target="_blank" 
+                 rel="noopener"
+                 onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'istanbul_kebab' });">
+                <img src="/static/images/kebab-idea-store.png" alt="Qaysar Qaynarr Special Deal" class="ad-img-thumb">
+              </a>
+            </div>
+          </div>
+          <div class="operating-hours-container">
+            <div class="hours-text">
+              <p>⏰ <strong>Mon–Sun:</strong> 11:00 AM – 9:00 PM <em>(Last Order: 8:30 PM)</em></p>
+              <p>⏸️ <strong>No Break Time</strong></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- STORE 3: Campus Pizza Place -->
+        <section class="ad-wide-banner ad-slide" data-slide-index="2" data-sponsor="pizza_place">
+          <span class="ad-tag">SPONSORED</span>
+          <div style="height: 5px;"></div>
+          <div class="ad-body">
+            <div class="ad-content-left">
+              <h3 class="ad-heading">Hot &amp; Fresh Campus Pizza!</h3>
+              <p class="ad-subtext">Best Slices Around Campus!</p>
+              <div class="ad-cta-row">
+                <div class="status-indicator" data-schedule="pizza">
+                  <span class="dot status-dot closed"></span>
+                  <span class="status-text text-closed">CLOSED</span>
+                </div>
+                <a href="https://gopizza.kr/menu" 
+                   target="_blank" 
+                   rel="noopener" 
+                   onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'pizza_place' });" 
+                   class="ad-cta-btn">
+                   View The Menu -&gt;
+                </a>
+              </div>
+            </div>
+            <div class="ad-content-right">
+              <a href="https://gopizza.kr/menu" 
+                 target="_blank" 
+                 rel="noopener"
+                 onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'pizza_place' });">
+                <img src="/static/images/pizza-idea-store.png" alt="Pizza Place Special Deal" class="ad-img-thumb">
+              </a>
+            </div>
+          </div>
+          <div class="operating-hours-container">
+            <div class="hours-text">
+              <p>⏰ <strong>Mon–Sat:</strong> 11:30 AM – 10:00 PM <em>(Last Order: 9:30 PM)</em></p>
+              <p>⏸️ <strong>Closed on Sundays</strong></p>
+            </div>
+          </div>
+        </section>
+
       </div>
-      <div class="operating-hours-container">
-        <div class="hours-text">
-          <p>⏰ <strong>Mon–Sat:</strong> 11:30 AM – 10:00 PM <em>(Last Order: 9:30 PM)</em></p>
-          <p>⏸️ <strong>Closed on Sundays</strong></p>
-        </div>
+
+      <!-- CAROUSEL PAGINATION DOTS -->
+      <div class="ad-carousel-dots" id="top-banner-dots">
+        <span class="carousel-dot active" data-index="0"></span>
+        <span class="carousel-dot" data-index="1"></span>
+        <span class="carousel-dot" data-index="2"></span>
       </div>
-    </section>
+    </div>
 
-  </div>
-
-  <!-- CAROUSEL PAGINATION DOTS -->
-  <div class="ad-carousel-dots" id="top-banner-dots">
-    <span class="carousel-dot active" data-index="0"></span>
-    <span class="carousel-dot" data-index="1"></span>
-    <span class="carousel-dot" data-index="2"></span>
-  </div>
-
-</div>
-
-
-
-</section>
-
-
+    <!-- BREAKFAST SECTION -->
     <section class="breakfast-section" aria-label="Breakfast menu">
-  <h2>Breakfast</h2>
-  <p class="service-time">07:30 – 09:00</p>
+      <h2>Breakfast</h2>
+      <p class="service-time">07:30 – 09:00</p>
 
-  <div
-    class="switcher"
-    role="group"
-    aria-label="Select breakfast line"
-    data-meal-period="breakfast"
-  >
-    <button
-      type="button"
-      data-line="left"
-      aria-pressed="{{ 'true' if breakfast_entry and breakfast_entry.line_type == 'left' else 'false' }}"
-      {% if not breakfast_available_lines.left %}disabled{% endif %}
-    >
-      Left Line
-    </button>
-
-    <button
-      type="button"
-      data-line="right"
-      aria-pressed="{{ 'true' if breakfast_entry and breakfast_entry.line_type == 'right' else 'false' }}"
-      {% if not breakfast_available_lines.right %}disabled{% endif %}
-    >
-      Right Line
-    </button>
-  </div>
-
-  <section
-    id="breakfast-menu-card"
-    class="menu-card"
-    aria-live="polite"
-  >
-    {% if breakfast_entry %}
-      <h2 id="breakfast-menu-heading">{{ breakfast_entry.title }}</h2>
-
-      {% if breakfast_entry.message %}
-        <p class="meal-message">{{ breakfast_entry.message }}</p>
-      {% endif %}
-
-      <img
-        id="breakfast-menu-image"
-        src="{{ breakfast_entry.image_url }}"
-        alt="{% if breakfast_entry.image_source == 'ai_generated' %}AI meal preview{% else %}Meal photo{% endif %} for Breakfast, {{ breakfast_entry.line_type|title }} Line, {{ display_date.strftime('%B %-d, %Y') }}."
-      >
-
-      {% if breakfast_entry.image_source == "ai_generated" %}
-        <p class="notice">
-          AI meal preview · Actual serving may vary.
-        </p>
-      {% endif %}
-
-      <ul id="breakfast-menu-items">
-        {% for item in breakfast_entry.menu_items %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <div class="empty">
-        <h2>Breakfast menu is being prepared.</h2>
-        <p>Please check again soon.</p>
+      <div class="switcher" role="group" aria-label="Select breakfast line" data-meal-period="breakfast">
+        <button type="button" data-line="left" aria-pressed="{{ 'true' if breakfast_entry and breakfast_entry.line_type == 'left' else 'false' }}" {% if not breakfast_available_lines.left %}disabled{% endif %}>
+          Left Line
+        </button>
+        <button type="button" data-line="right" aria-pressed="{{ 'true' if breakfast_entry and breakfast_entry.line_type == 'right' else 'false' }}" {% if not breakfast_available_lines.right %}disabled{% endif %}>
+          Right Line
+        </button>
       </div>
-    {% endif %}
-  </section>
-</section>
 
-<div style="height: 40px;"></div>
+      <section id="breakfast-menu-card" class="menu-card" aria-live="polite">
+        {% if breakfast_entry %}
+          <h2 id="breakfast-menu-heading">{{ breakfast_entry.title }}</h2>
+          {% if breakfast_entry.message %}
+            <p class="meal-message">{{ breakfast_entry.message }}</p>
+          {% endif %}
+          <img id="breakfast-menu-image" src="{{ breakfast_entry.image_url }}" alt="Breakfast photo">
+          <ul id="breakfast-menu-items">
+            {% for item in breakfast_entry.menu_items %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <div class="empty">
+            <h2>Breakfast menu is being prepared.</h2>
+            <p>Please check again soon.</p>
+          </div>
+        {% endif %}
+      </section>
+    </section>
 
-<!-- TEMPORARILY DISABLED MIDDLE BANNER (Qaysar Qaynarr - Uzbek Restaurant) -->
-<template>
+    <div style="height: 40px;"></div>
 
-  <!-- WIDE HORIZONTAL AD BANNER -->
-  <section class="ad-wide-banner" aria-label="Restaurant Special Offer">
-    
-    <!-- SPONSORED BADGE -->
-    <span class="ad-tag">SPONSORED</span>
+    <!-- MIDDLE BANNER AD CAROUSEL CONTAINER -->
+    <div class="ad-carousel-container" aria-label="Featured Restaurant Announcements - Middle Banner">
+      <div class="ad-carousel-track" id="middle-banner-carousel">
+        
+        <!-- STORE 1 (Middle): Qaysar Qaynarr -->
+        <section class="ad-wide-banner ad-slide" data-slide-index="0" data-sponsor="qaysar_qaynarr">
+          <span class="ad-tag">SPONSORED</span>
+          <div style="height: 5px;"></div>
+          <div class="ad-body">
+            <div class="ad-content-left">
+              <h3 class="ad-heading">Qaysar Qaynarr Uzbek Cuisine!</h3>
+              <p class="ad-subtext">Authentic Central Asian Flavors!</p>
+              <div class="ad-cta-row">
+                <div class="status-indicator" data-schedule="qaysar">
+                  <span class="dot status-dot closed"></span>
+                  <span class="status-text text-closed">CLOSED</span>
+                </div>
+                <a href="https://place.map.kakao.com/9472114?fromAppLink=true" 
+                   target="_blank" 
+                   rel="noopener" 
+                   onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'qaysar_qaynarr' });" 
+                   class="ad-cta-btn">
+                   View The Menu -&gt;
+                </a>
+              </div>
+            </div>
+            <div class="ad-content-right">
+              <a href="https://place.map.kakao.com/9472114?fromAppLink=true" 
+                 target="_blank" 
+                 rel="noopener"
+                 onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'qaysar_qaynarr' });">
+                <img src="/static/images/kebab-idea-store.png" alt="Qaysar Qaynarr Special Deal" class="ad-img-thumb">
+              </a>
+            </div>
+          </div>
+          <div class="operating-hours-container">
+            <div class="hours-text">
+              <p>⏰ <strong>Mon–Sun:</strong> 11:00 AM – 9:00 PM <em>(Last Order: 8:30 PM)</em></p>
+              <p>⏸️ <strong>No Break Time</strong></p>
+            </div>
+          </div>
+        </section>
 
-    <!-- LEFT SIDE: Text, Offer Slogan, & CTA -->
-    <div class="ad-content-left">
-      <h3 class="ad-heading">Qaysar Qaynarr Uzbek Cuisine!</h3>
-      <p class="ad-subtext">Authentic Central Asian Flavors!</p>
-      
-      <!-- Action Link / Button -->
-      <a href="https://your-restaurant-link.com" 
-         target="_blank" 
-         rel="noopener" 
-         onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'qaysar_qaynarr' });" 
-         class="ad-cta-btn">
-         View The Menu -&gt;
-      </a>
+        <!-- STORE 2 (Middle): Burger House -->
+        <section class="ad-wide-banner ad-slide" data-slide-index="1" data-sponsor="middle_burger_house">
+          <span class="ad-tag">SPONSORED</span>
+          <div style="height: 5px;"></div>
+          <div class="ad-body">
+            <div class="ad-content-left">
+              <h3 class="ad-heading">Burger House Special Combo!</h3>
+              <p class="ad-subtext">Juicy Craft Burgers — Student Discount!</p>
+              <div class="ad-cta-row">
+                <div class="status-indicator" data-schedule="burger">
+                  <span class="dot status-dot closed"></span>
+                  <span class="status-text text-closed">CLOSED</span>
+                </div>
+                <a href="https://your-restaurant-link.com" 
+                   target="_blank" 
+                   rel="noopener" 
+                   onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'middle_burger_house' });" 
+                   class="ad-cta-btn">
+                   View The Menu -&gt;
+                </a>
+              </div>
+            </div>
+            <div class="ad-content-right">
+              <a href="https://your-restaurant-link.com" 
+                 target="_blank" 
+                 rel="noopener"
+                 onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'middle_burger_house' });">
+                <img src="/static/images/burger-house.png" alt="Burger House Special Deal" class="ad-img-thumb">
+              </a>
+            </div>
+          </div>
+          <div class="operating-hours-container">
+            <div class="hours-text">
+              <p>⏰ <strong>Mon–Sat:</strong> 10:30 AM – 9:00 PM</p>
+              <p>⏸️ <strong>Closed on Sundays</strong></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- STORE 3 (Middle): Dorothy Cafe -->
+        <section class="ad-wide-banner ad-slide" data-slide-index="2" data-sponsor="dorothy_cafe">
+          <span class="ad-tag">SPONSORED</span>
+          <div style="height: 5px;"></div>
+          <div class="ad-body">
+            <div class="ad-content-left">
+              <h3 class="ad-heading">Dorothy Cafe Student Special!</h3>
+              <p class="ad-subtext">Fresh Coffee &amp; Desserts Near Campus!</p>
+              <div class="ad-cta-row">
+                <div class="status-indicator" data-schedule="dorothy">
+                  <span class="dot status-dot closed"></span>
+                  <span class="status-text text-closed">CLOSED</span>
+                </div>
+                <a href="https://your-restaurant-link.com" 
+                   target="_blank" 
+                   rel="noopener" 
+                   onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'dorothy_cafe' });" 
+                   class="ad-cta-btn">
+                   View The Menu -&gt;
+                </a>
+              </div>
+            </div>
+            <div class="ad-content-right">
+              <a href="https://your-restaurant-link.com" 
+                 target="_blank" 
+                 rel="noopener"
+                 onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'dorothy_cafe' });">
+                <img src="/static/images/dorothy.PNG" alt="Dorothy Cafe Special Deal" class="ad-img-thumb">
+              </a>
+            </div>
+          </div>
+          <div class="operating-hours-container">
+            <div class="hours-text">
+              <p>⏰ <strong>Mon–Sun:</strong> 9:00 AM – 10:00 PM</p>
+              <p>⏸️ <strong>No Break Time</strong></p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- CAROUSEL PAGINATION DOTS -->
+      <div class="ad-carousel-dots" id="middle-banner-dots">
+        <span class="carousel-dot active" data-index="0"></span>
+        <span class="carousel-dot" data-index="1"></span>
+        <span class="carousel-dot" data-index="2"></span>
+      </div>
     </div>
 
-    <!-- RIGHT SIDE: Compact Square Image -->
-    <div class="ad-content-right">
-      <a href="https://your-restaurant-link.com" target="_blank" rel="noopener">
-        <img src="/static/images/qaysar-qaynarr.png" alt="Qaysar Qaynarr Special Deal" class="ad-img-thumb">
-      </a>
-    </div>
-
-  </section>
-
-</template>
-
+    <!-- LUNCH SECTION -->
     <section aria-label="Lunch menu">
       <h2>Lunch</h2>
       <p class="service-time">11:45 – 13:45</p>
 
-      <div
-          class="switcher"
-          role="group"
-          aria-label="Select lunch line"
-          data-meal-period="lunch"
-      >
-        <button
-          type="button"
-          data-line="left"
-          aria-pressed="{{ 'true' if entry and entry.line_type == 'left' else 'false' }}"
-          {% if not available_lines.left %}disabled{% endif %}
-        >
+      <div class="switcher" role="group" aria-label="Select lunch line" data-meal-period="lunch">
+        <button type="button" data-line="left" aria-pressed="{{ 'true' if entry and entry.line_type == 'left' else 'false' }}" {% if not available_lines.left %}disabled{% endif %}>
           Left Line
         </button>
-
-        <button
-          type="button"
-          data-line="right"
-          aria-pressed="{{ 'true' if entry and entry.line_type == 'right' else 'false' }}"
-          {% if not available_lines.right %}disabled{% endif %}
-        >
+        <button type="button" data-line="right" aria-pressed="{{ 'true' if entry and entry.line_type == 'right' else 'false' }}" {% if not available_lines.right %}disabled{% endif %}>
           Right Line
         </button>
       </div>
     </section>
 
-    <section
-      id="menu-card"
-      class="menu-card"
-      aria-live="polite"
-    >
+    <section id="menu-card" class="menu-card" aria-live="polite">
       {% if entry %}
         <h2 id="menu-heading">{{ entry.title }}</h2>
-        
         {% if entry.message %}
-        <p class="meal-message">{{ entry.message }}</p>
+          <p class="meal-message">{{ entry.message }}</p>
         {% endif %}
-        
-        <img
-          id="menu-image"
-          src="{{ entry.image_url }}"
-          alt="{% if entry.image_source == 'ai_generated' %}AI meal preview{% else %}Meal photo{% endif %} for Lunch, {{ entry.line_type|title }} Line, {{ display_date.strftime('%B %-d, %Y') }}."
-        >
-
-        {% if entry.image_source == "ai_generated" %}
-          <p class="notice">
-            AI meal preview · Actual serving may vary.
-          </p>
-        {% endif %}
-
+        <img id="menu-image" src="{{ entry.image_url }}" alt="Lunch photo">
         <ul id="menu-items">
           {% for item in entry.menu_items %}
             <li>{{ item }}</li>
@@ -354,81 +369,163 @@ Meal service will resume on Monday, September 28.</p>
 
     <div style="height: 40px;"></div>
 
-<!-- TEMPORARILY DISABLED BOTTOM BANNER (Pizza Place) -->
-<template>
-
-  <!-- WIDE HORIZONTAL AD BANNER -->
-  <section class="ad-wide-banner" aria-label="Restaurant Special Offer">
-    
-    <!-- SPONSORED BADGE -->
-    <span class="ad-tag">SPONSORED</span>
-
-    <!-- LEFT SIDE: Text, Offer Slogan, & CTA -->
-    <div class="ad-content-left">
-      <h3 class="ad-heading">Hot &amp; Fresh Pizza Place!</h3>
-      <p class="ad-subtext">Best Slices Around Campus!</p>
-      
-      <!-- Action Link / Button -->
-      <a href="https://your-restaurant-link.com" 
-         target="_blank" 
-         rel="noopener" 
-         onclick="gtag('event', 'ad_click', { 'slot_location': 'bottom_banner', 'sponsor_name': 'pizza_place' });" 
-         class="ad-cta-btn">
-         View The Menu -&gt;
-      </a>
-    </div>
-
-    <!-- RIGHT SIDE: Compact Square Image -->
-    <div class="ad-content-right">
-      <a href="https://your-restaurant-link.com" target="_blank" rel="noopener">
-        <img src="/static/images/pizza-place.png" alt="Pizza Place Special Deal" class="ad-img-thumb">
-      </a>
-    </div>
-
-  </section>
-
-</template>
-
-
-    <section class="dinner-section" aria-label="Dinner menu">
-          <h2>Dinner</h2>
-          <p class="service-time">17:30 – 19:00</p>
-          <p class="same-meal-note">
-            Same meal is served on both lines.
-          </p>
-
-          <div class="menu-card">
-            {% if dinner_entry %}
-              <h2>{{ dinner_entry.title }}</h2>
-
-              {% if dinner_entry.message %}
-                <p class="meal-message">{{ dinner_entry.message }}</p>
-              {% endif %}
-
-              <img
-                src="{{ dinner_entry.image_url }}"
-                alt="{% if dinner_entry.image_source == 'ai_generated' %}AI meal preview{% else %}Meal photo{% endif %} for Dinner, {{ display_date.strftime('%B %-d, %Y') }}."
-              >
-
-              {% if dinner_entry.image_source == "ai_generated" %}
-                <p class="notice">
-                  AI meal preview · Actual serving may vary.
-                </p>
-              {% endif %}
-
-              <ul>
-                {% for item in dinner_entry.menu_items %}
-                  <li>{{ item }}</li>
-                {% endfor %}
-              </ul>
-            {% else %}
-              <div class="empty">
-                <h2>Dinner menu is being prepared.</h2>
-                <p>Please check again soon.</p>
+    <!-- BOTTOM BANNER AD CAROUSEL CONTAINER -->
+    <div class="ad-carousel-container" aria-label="Featured Restaurant Announcements - Bottom Banner">
+      <div class="ad-carousel-track" id="bottom-banner-carousel">
+        
+        <!-- STORE 1 (Bottom): Campus Pizza Place -->
+        <section class="ad-wide-banner ad-slide" data-slide-index="0" data-sponsor="pizza_place_b">
+          <span class="ad-tag">SPONSORED</span>
+          <div style="height: 5px;"></div>
+          <div class="ad-body">
+            <div class="ad-content-left">
+              <h3 class="ad-heading">Hot &amp; Fresh Campus Pizza!</h3>
+              <p class="ad-subtext">Best Slices Around Campus!</p>
+              <div class="ad-cta-row">
+                <div class="status-indicator" data-schedule="pizza_b">
+                  <span class="dot status-dot closed"></span>
+                  <span class="status-text text-closed">CLOSED</span>
+                </div>
+                <a href="https://gopizza.kr/menu" 
+                   target="_blank" 
+                   rel="noopener" 
+                   onclick="gtag('event', 'ad_click', { 'slot_location': 'bottom_banner', 'sponsor_name': 'pizza_place_b' });" 
+                   class="ad-cta-btn">
+                   View The Menu -&gt;
+                </a>
               </div>
-            {% endif %}
+            </div>
+            <div class="ad-content-right">
+              <a href="https://gopizza.kr/menu" 
+                 target="_blank" 
+                 rel="noopener"
+                 onclick="gtag('event', 'ad_click', { 'slot_location': 'bottom_banner', 'sponsor_name': 'pizza_place_b' });">
+                <img src="/static/images/pizza-idea-store.png" alt="Pizza Place Special Deal" class="ad-img-thumb">
+              </a>
+            </div>
+          </div>
+          <div class="operating-hours-container">
+            <div class="hours-text">
+              <p>⏰ <strong>Mon–Sat:</strong> 11:30 AM – 10:00 PM <em>(Last Order: 9:30 PM)</em></p>
+              <p>⏸️ <strong>Closed on Sundays</strong></p>
+            </div>
           </div>
         </section>
+
+        <!-- STORE 2 (Bottom): Noodle Bar -->
+        <section class="ad-wide-banner ad-slide" data-slide-index="1" data-sponsor="bottom_noodle_bar">
+          <span class="ad-tag">SPONSORED</span>
+          <div style="height: 5px;"></div>
+          <div class="ad-body">
+            <div class="ad-content-left">
+              <h3 class="ad-heading">Spicy Asian Noodle Bar!</h3>
+              <p class="ad-subtext">Hot Bowls &amp; Fast Lunch Service!</p>
+              <div class="ad-cta-row">
+                <div class="status-indicator" data-schedule="noodles">
+                  <span class="dot status-dot closed"></span>
+                  <span class="status-text text-closed">CLOSED</span>
+                </div>
+                <a href="https://your-restaurant-link.com" 
+                   target="_blank" 
+                   rel="noopener" 
+                   onclick="gtag('event', 'ad_click', { 'slot_location': 'bottom_banner', 'sponsor_name': 'bottom_noodle_bar' });" 
+                   class="ad-cta-btn">
+                   View The Menu -&gt;
+                </a>
+              </div>
+            </div>
+            <div class="ad-content-right">
+              <a href="https://your-restaurant-link.com" 
+                 target="_blank" 
+                 rel="noopener"
+                 onclick="gtag('event', 'ad_click', { 'slot_location': 'bottom_banner', 'sponsor_name': 'bottom_noodle_bar' });">
+                <img src="/static/images/noodle-bar.png" alt="Noodle Bar Special Deal" class="ad-img-thumb">
+              </a>
+            </div>
+          </div>
+          <div class="operating-hours-container">
+            <div class="hours-text">
+              <p>⏰ <strong>Mon–Sat:</strong> 11:00 AM – 8:30 PM</p>
+              <p>⏸️ <strong>Closed on Sundays</strong></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- STORE 3 (Bottom): Salad Store -->
+        <section class="ad-wide-banner ad-slide" data-slide-index="2" data-sponsor="bottom_salad_store">
+          <span class="ad-tag">SPONSORED</span>
+          <div style="height: 5px;"></div>
+          <div class="ad-body">
+            <div class="ad-content-left">
+              <h3 class="ad-heading">Fresh Green Salad Bowls!</h3>
+              <p class="ad-subtext">Healthy Student Fuel Every Day!</p>
+              <div class="ad-cta-row">
+                <div class="status-indicator" data-schedule="salad">
+                  <span class="dot status-dot closed"></span>
+                  <span class="status-text text-closed">CLOSED</span>
+                </div>
+                <a href="https://your-restaurant-link.com" 
+                   target="_blank" 
+                   rel="noopener" 
+                   onclick="gtag('event', 'ad_click', { 'slot_location': 'bottom_banner', 'sponsor_name': 'bottom_salad_store' });" 
+                   class="ad-cta-btn">
+                   View The Menu -&gt;
+                </a>
+              </div>
+            </div>
+            <div class="ad-content-right">
+              <a href="https://your-restaurant-link.com" 
+                 target="_blank" 
+                 rel="noopener"
+                 onclick="gtag('event', 'ad_click', { 'slot_location': 'bottom_banner', 'sponsor_name': 'bottom_salad_store' });">
+                <img src="/static/images/salad-store.png" alt="Salad Store Special Deal" class="ad-img-thumb">
+              </a>
+            </div>
+          </div>
+          <div class="operating-hours-container">
+            <div class="hours-text">
+              <p>⏰ <strong>Mon–Fri:</strong> 10:00 AM – 8:00 PM</p>
+              <p>⏸️ <strong>Closed on Weekends</strong></p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- CAROUSEL PAGINATION DOTS -->
+      <div class="ad-carousel-dots" id="bottom-banner-dots">
+        <span class="carousel-dot active" data-index="0"></span>
+        <span class="carousel-dot" data-index="1"></span>
+        <span class="carousel-dot" data-index="2"></span>
+      </div>
+    </div>
+
+    <!-- DINNER SECTION -->
+    <section class="dinner-section" aria-label="Dinner menu">
+      <h2>Dinner</h2>
+      <p class="service-time">17:30 – 19:00</p>
+      <p class="same-meal-note">Same meal is served on both lines.</p>
+
+      <div class="menu-card">
+        {% if dinner_entry %}
+          <h2>{{ dinner_entry.title }}</h2>
+          {% if dinner_entry.message %}
+            <p class="meal-message">{{ dinner_entry.message }}</p>
+          {% endif %}
+          <img src="{{ dinner_entry.image_url }}" alt="Dinner photo">
+          <ul>
+            {% for item in dinner_entry.menu_items %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <div class="empty">
+            <h2>Dinner menu is being prepared.</h2>
+            <p>Please check again soon.</p>
+          </div>
+        {% endif %}
+      </div>
+    </section>
 
     <footer class="public-footer">
       <p>AI meal previews are based on representative cafeteria meals.</p>
@@ -438,6 +535,6 @@ Meal service will resume on Monday, September 28.</p>
   <script src="/static/js/menu.js?v=breakfast-1"></script>
   <script src="/static/js/morak-status.js"></script>
   <script src="/static/js/restaurant-status.js"></script>
-  <script src="/static/js/carousel.js"></script>
+  <script src="/static/js/carousel.js?v=v4-test"></script>
 </body>
 </html>
