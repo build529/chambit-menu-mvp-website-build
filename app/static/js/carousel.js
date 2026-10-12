@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('[Ad Tracker] Viewability carousel starting...');
+
   const containers = document.querySelectorAll('.ad-carousel-container');
 
-  containers.forEach((container) => {
+  containers.forEach((container, containerIndex) => {
     const track = container.querySelector('.ad-carousel-track');
     const dots = container.querySelectorAll('.carousel-dot');
     if (!track) return;
@@ -10,50 +12,80 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalSlides = slides.length;
     if (totalSlides === 0) return;
 
-    // Infer slot location from element ID (e.g., 'top-banner-carousel' -> 'top_banner')
-    const slotLocation = track.id ? track.id.replace('-carousel', '').replace(/-/g, '_') : 'unknown_slot';
-
-    let isContainerInViewport = false;
-
-    // 1. Viewport Visibility Observer (Detects when container is at least 50% on screen)
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        isContainerInViewport = entry.isIntersecting;
-        if (isContainerInViewport) {
-          // Send impression for current slide if visible on screen
-          checkAndSendImpression(slides[currentSlideIndex]);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    observer.observe(container);
-
-    // 2. Impression Dispatcher with "Once per Page Load" Safeguard
-    function checkAndSendImpression(slideElement) {
-      if (!slideElement) return;
-
-      // Only send if: Container is visible AND this slide hasn't fired an impression yet
-      if (isContainerInViewport && slideElement.dataset.impressionSent !== 'true') {
-        const sponsorName = slideElement.getAttribute('data-sponsor');
-
-        if (typeof gtag === 'function' && sponsorName) {
-          gtag('event', 'ad_impression', {
-            'slot_location': slotLocation,
-            'sponsor_name': sponsorName
-          });
-          slideElement.dataset.impressionSent = 'true'; // Mark as logged for this session
-        }
-      }
-    }
-
-    const SLIDE_DURATION = 3500; // 3.5 seconds per slide
-    const USER_PAUSE_DURATION = 5000; // 5 seconds cooldown after manual swipe
+    const slotLocation = track.id ? track.id.replace('-carousel', '').replace(/-/g, '_') : `slot_${containerIndex}`;
+    const SLIDE_DURATION = 3500;
+    const USER_PAUSE_DURATION = 5000;
+    const VIEWABLE_DWELL_TIME = 1000; // 1.0 second required viewability
 
     let autoSlideInterval = null;
     let cooldownTimer = null;
+    let impressionTimers = {};
     let isUserInteracting = false;
+    let isContainerInViewport = false;
     let currentSlideIndex = 0;
 
+    // 1. IntersectionObserver: Track when banner enters viewport (10% threshold)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isContainerInViewport = entry.isIntersecting;
+        console.log(`[Ad Tracker] Visibility for ${slotLocation}: ${isContainerInViewport}`);
+        if (isContainerInViewport) {
+          checkAndSendViewableImpression(currentSlideIndex);
+        } else {
+          cancelAllImpressionTimers();
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(container);
+
+    function cancelAllImpressionTimers() {
+      Object.keys(impressionTimers).forEach(idx => {
+        clearTimeout(impressionTimers[idx]);
+        delete impressionTimers[idx];
+      });
+    }
+
+    // 2. Viewable Impression Logic with 1-Second Dwell Timer
+    function checkAndSendViewableImpression(slideIndex) {
+      const slideElement = slides[slideIndex];
+      if (!slideElement) return;
+
+      if (slideElement.dataset.impressionSent === 'true') return;
+
+      if (impressionTimers[slideIndex]) {
+        clearTimeout(impressionTimers[slideIndex]);
+      }
+
+      if (!isContainerInViewport) return;
+
+      console.log(`[Ad Tracker] Starting 1s dwell countdown for slide ${slideIndex} (${slotLocation})...`);
+
+      impressionTimers[slideIndex] = setTimeout(() => {
+        if (isContainerInViewport && slideElement.dataset.impressionSent !== 'true') {
+          let sponsorName = slideElement.getAttribute('data-sponsor');
+          if (!sponsorName) {
+            const ctaLink = slideElement.querySelector('a[onclick*="sponsor_name"]');
+            if (ctaLink) {
+              const match = ctaLink.getAttribute('onclick').match(/['"]sponsor_name['"]\s*:\s*['"]([^'"]+)['"]/);
+              if (match && match[1]) sponsorName = match[1];
+            }
+          }
+
+          if (sponsorName && typeof gtag === 'function') {
+            gtag('event', 'view_ad_impression', {
+              'slot_location': slotLocation,
+              'sponsor_name': sponsorName
+            });
+            slideElement.dataset.impressionSent = 'true';
+            console.log(`[Viewable Impression SUCCESS] Fired event -> slot: ${slotLocation}, sponsor: ${sponsorName}`);
+          }
+        }
+        delete impressionTimers[slideIndex];
+      }, VIEWABLE_DWELL_TIME);
+    }
+
+    // 3. Carousel Navigation & Auto-Slide Logic
     function scrollToIndex(index) {
       currentSlideIndex = (index + totalSlides) % totalSlides;
       const targetSlide = slides[currentSlideIndex];
@@ -64,30 +96,22 @@ document.addEventListener('DOMContentLoaded', () => {
         behavior: 'smooth'
       });
       updateDots(currentSlideIndex);
-
-      // Attempt impression tracking for newly displayed slide
-      checkAndSendImpression(targetSlide);
+      checkAndSendViewableImpression(currentSlideIndex);
     }
 
     function updateDots(activeIndex) {
       dots.forEach((dot, idx) => {
-        if (idx === activeIndex) {
-          dot.classList.add('active');
-        } else {
-          dot.classList.remove('active');
-        }
+        dot.classList.toggle('active', idx === activeIndex);
       });
     }
 
     function getGlobalSlideIndex() {
-      const now = Date.now();
-      return Math.floor(now / SLIDE_DURATION) % totalSlides;
+      return Math.floor(Date.now() / SLIDE_DURATION) % totalSlides;
     }
 
     function tickAutoSlide() {
       if (isUserInteracting) return;
-      const targetIndex = getGlobalSlideIndex();
-      scrollToIndex(targetIndex);
+      scrollToIndex(getGlobalSlideIndex());
     }
 
     function startGlobalAutoSlide() {
@@ -97,8 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const initialIndex = getGlobalSlideIndex();
       scrollToIndex(initialIndex);
 
-      const now = Date.now();
-      const timeRemaining = SLIDE_DURATION - (now % SLIDE_DURATION);
+      const timeRemaining = SLIDE_DURATION - (Date.now() % SLIDE_DURATION);
 
       cooldownTimer = setTimeout(() => {
         tickAutoSlide();
@@ -106,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, timeRemaining);
     }
 
+    // Touch & Mouse Event Listeners
     function handleUserTouchStart() {
       isUserInteracting = true;
       clearInterval(autoSlideInterval);
@@ -120,26 +144,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }, USER_PAUSE_DURATION);
     }
 
-    // Touch and mouse interaction event listeners
     track.addEventListener('touchstart', handleUserTouchStart, { passive: true });
     track.addEventListener('touchend', handleUserTouchEnd, { passive: true });
     track.addEventListener('mousedown', handleUserTouchStart);
     track.addEventListener('mouseup', handleUserTouchEnd);
 
-    // Sync dots and track impression on manual scroll/swipe
+    // Debounced Scroll Listener
+    let scrollTimeout = null;
     track.addEventListener('scroll', () => {
-      const slideWidth = track.clientWidth || track.offsetWidth;
-      if (slideWidth > 0) {
-        const nearestIndex = Math.round(track.scrollLeft / slideWidth);
-        if (nearestIndex !== currentSlideIndex && nearestIndex >= 0 && nearestIndex < totalSlides) {
-          currentSlideIndex = nearestIndex;
-          updateDots(currentSlideIndex);
-          checkAndSendImpression(slides[currentSlideIndex]);
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const slideWidth = track.clientWidth || track.offsetWidth;
+        if (slideWidth > 0) {
+          const nearestIndex = Math.round(track.scrollLeft / slideWidth);
+          if (nearestIndex !== currentSlideIndex && nearestIndex >= 0 && nearestIndex < totalSlides) {
+            currentSlideIndex = nearestIndex;
+            updateDots(currentSlideIndex);
+            checkAndSendViewableImpression(currentSlideIndex);
+          }
         }
-      }
+      }, 150);
     });
 
-    // Dot click navigation
     dots.forEach((dot, idx) => {
       dot.addEventListener('click', () => {
         handleUserTouchStart();

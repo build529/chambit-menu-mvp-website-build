@@ -13,7 +13,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag("js", new Date());
-    gtag("config", "{{ ga_measurement_id }}");
+    gtag("config", "{{ ga_measurement_id }}", { 'debug_mode': true});
   </script>
   {% endif %}
 </head>
@@ -553,6 +553,6 @@
   <script src="/static/js/menu.js?v=breakfast-1"></script>
   <script src="/static/js/morak-status.js"></script>
   <script src="/static/js/restaurant-status.js?v=v1-test"></script>
-  <script src="/static/js/carousel.js?v=v4-test"></script>
+  <script src="/static/js/carousel.js?v=v10-dwell-fix"></script>
 </body>
 </html>
