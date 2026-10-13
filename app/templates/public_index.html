@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chambit Menu</title>
-  <link rel="stylesheet" href="/static/css/site.css?v=ad-full-banner-img-01">
+  <link rel="stylesheet" href="/static/css/site.css?v=ad-cta-row-01">
 
   {% if ga_measurement_id %}
   <!-- Google tag (gtag.js) -->
@@ -78,29 +78,39 @@
 
         <!-- TOP - STORE 2 -->
         <section class="ad-wide-banner ad-slide" data-slide-index="1" data-sponsor="mymy_chicken">
-          <span class="ad-tag">SPONSORED</span>
+          <span class="ad-tag">MYMY CHICKEN • SPECIAL COUPON</span>
           <div style="height: 5px;"></div>
           <div class="ad-body">
             <div class="ad-content-left">
-              <h3 class="ad-heading">When chicken calls, make it MYMY!</h3>
-              <p class="ad-subtext">Make the moment crispy!</p>
+              <h3 class="ad-heading">FREE Tteokbokki or Drink! 😋🥤</h3>
+              <p class="ad-subtext">✨ Show website at counter</p>
+
               <div class="ad-cta-row">
-            <!--
-                <div class="status-indicator" data-schedule="chicken">
+
+                <!-- Live Operating Status -->
+                 <!--
+                <div class="status-indicator" data-schedule="mymy">
                   <span class="dot status-dot closed"></span>
                   <span class="status-text text-closed">CLOSED</span>
                 </div>
               -->
-                <div style="height: 10px;"></div>
           
                 <a href="https://m.place.naver.com/restaurant/1709630594/home?query=%EB%A7%88%EC%9D%B4%EB%A7%88%EC%9D%B4%EC%B9%98%ED%82%A8%20%EC%A0%84%EB%B6%81%EB%8C%80&entry=plt#blogLinkNotice" 
                    target="_blank" 
                    rel="noopener" 
                    onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'mymy_chicken' });" 
                    class="ad-cta-btn">
-                   View The Menu -&gt;
+                   View Menu -&gt;
                 </a>
-                <div style="height: 10px;"></div>
+
+                <!-- Get Coupon Action Button -->
+                <a href="/coupon-details.html" 
+                  target="_blank" 
+                  rel="noopener" 
+                  onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'mymy_chicken_coupon' });" 
+                  class="ad-cta-btn animated-coupon">
+                  GET FREE COUPON!
+                </a>
               </div>
             </div>
             <div class="ad-content-right">
@@ -108,7 +118,7 @@
                  target="_blank" 
                  rel="noopener"
                  onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'istanbul_kebab' });">
-                <img src="/static/images/mymy_chicken_logo.jpg" alt="MYMY Chicken" class="ad-img-thumb">
+                <img src="/static/images/mymy-special-promo.png" alt="MYMY Chicken" class="ad-img-thumb">
               </a>
             </div>
           </div>
@@ -216,7 +226,7 @@
     <div style="height: 40px;"></div>
 
     <!-- MIDDLE BANNER AD CAROUSEL CONTAINER -->
-  <template>
+    <template>
     <div class="ad-carousel-container" aria-label="Featured Restaurant Announcements - Middle Banner">
       <div class="ad-carousel-track" id="middle-banner-carousel">
         
@@ -346,7 +356,7 @@
         <span class="carousel-dot" data-index="2"></span>
       </div>
     </div>
-  </template>
+    </template>
 
     <!-- LUNCH SECTION -->
     <section aria-label="Lunch menu">
@@ -386,7 +396,7 @@
     <div style="height: 40px;"></div>
 
     <!-- BOTTOM BANNER AD CAROUSEL CONTAINER -->
-  <template>
+    <template>
     <div class="ad-carousel-container" aria-label="Featured Restaurant Announcements - Bottom Banner">
       <div class="ad-carousel-track" id="bottom-banner-carousel">
         
@@ -516,7 +526,7 @@
         <span class="carousel-dot" data-index="2"></span>
       </div>
     </div>
-  </template>
+    </template>
 
     <!-- DINNER SECTION -->
     <section class="dinner-section" aria-label="Dinner menu">

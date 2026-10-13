@@ -415,7 +415,7 @@ a {
   min-height: 110px;         /* Short base height */
   
   margin: 0 auto 20px auto;  /* Centered with bottom spacing */
-  padding: 12px 14px;
+  padding: 10px 10px;
   box-sizing: border-box;
   
   background: var(--paper, #ffffff);
@@ -449,8 +449,9 @@ a {
 
 /* LEFT SIDE TEXT AREA */
 .ad-content-left {
-  flex: 1;
-  padding-right: 12px;
+  flex: 1 1 auto;            /* Allows text area to dynamically expand and shrink smoothly */
+  min-width: 0;              /* CRITICAL: Prevents long text from pushing the right column down or out of screen */
+  padding-right: 8px;        /* Reduced gap between text and image */
   padding-top: 10px;
   display: flex;
   flex-direction: column;
@@ -492,9 +493,9 @@ a {
 
 /* RIGHT SIDE IMAGE AREA */
 .ad-content-right {
-  flex-shrink: 0;
-  width: 85px;
-  height: 85px;
+  flex-shrink: 0;            /* Keeps image fixed so text never squashes it */
+  width: 100px;              /* Increased from 85px to 100px */
+  height: 100px;             /* Increased from 85px to 100px */
 }
 
 
@@ -652,4 +653,61 @@ a {
   border-radius: 5px;
   display: block;
   margin-top: 0px;      /* Leaves room for the top ADVERTISE tag */
+}
+
+
+/* ==========================================================================
+   ELECTRIC PURPLE-BLUE ANIMATED CTA BUTTON (OPTION 1)
+   ========================================================================== */
+
+.ad-cta-btn.animated-coupon {
+  position: relative;
+  overflow: hidden;
+  
+  /* Rich Indigo-Purple Blue Gradient */
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #4f46e5 100%) !important;
+  color: #ffffff !important;
+  font-weight: 800;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.45);
+  
+  /* Continuous gentle pulsing size/glow */
+  animation: purplePulse 2s infinite ease-in-out;
+}
+
+/* Bright Light-Sweep (Shimmer) Layer */
+.ad-cta-btn.animated-coupon::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.55) 50%, 
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  animation: purpleShineSweep 2.8s infinite ease-in-out;
+}
+
+/* Button pulse animation keyframes */
+@keyframes purplePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.65);
+  }
+}
+
+/* Light sweep motion keyframes */
+@keyframes purpleShineSweep {
+  0% { left: -60%; }
+  35% { left: 140%; }
+  100% { left: 140%; }
 }
