@@ -10,13 +10,20 @@ MAIN_DB_URL = os.getenv("DATABASE_URL", "sqlite:///./data/chambit.db")
 if MAIN_DB_URL.startswith("postgres://"):
     MAIN_DB_URL = MAIN_DB_URL.replace("postgres://", "postgresql://", 1)
 
+# Auto-create the directory if using local SQLite and the directory doesn't exist
+if "sqlite" in MAIN_DB_URL:
+    db_path = MAIN_DB_URL.replace("sqlite:///", "")
+    db_dir = os.path.dirname(db_path)
+    if db_dir:
+        os.makedirs(db_dir, exist_ok=True)
+
 engine_main = create_engine(
     MAIN_DB_URL,
     connect_args={"check_same_thread": False} if "sqlite" in MAIN_DB_URL else {},
     pool_pre_ping=True if "postgresql" in MAIN_DB_URL else False
 )
 
-# Export 'engine' alias so app/main.py can import `Base, engine`
+# Export 'engine' alias for app/main.py
 engine = engine_main
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine_main)
