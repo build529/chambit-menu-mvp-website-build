@@ -2,7 +2,7 @@ import time
 from datetime import datetime
 from fastapi import APIRouter, Request, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app.database import get_db
+from app.database import get_coupon_db
 from app import models
 
 
@@ -21,7 +21,7 @@ def get_client_ip(request: Request) -> str:
     return request.client.host if request.client else "127.0.0.1"
 
 @router.post("/api/claim-levant-coupon")
-def claim_levant_coupon(request: Request, db: Session = Depends(get_db)):
+def claim_levant_coupon(request: Request, db: Session = Depends(get_coupon_db)):
     client_ip = get_client_ip(request)
     current_time = time.time()
 
