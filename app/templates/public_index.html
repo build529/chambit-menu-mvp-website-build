@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chambit Menu</title>
-  <link rel="stylesheet" href="/static/css/site.css?v=ad-cta-row-01">
+  <link rel="stylesheet" href="/static/css/site.css?v=animated-orange-01">
 
   {% if ga_measurement_id %}
   <!-- Google tag (gtag.js) -->
@@ -30,7 +30,7 @@
     </header>
 
     <section class="service-notices" aria-label="Service information">
-      <p><strong>🍕 Still hungry?</strong> Check nearby restaurants for special student deals! 🍔</p> 
+      <p><strong>Check Your Meals in Advance!</strong> Content Updates Daily at 7 P.M.</p> 
     </section>
 
     <!-- TOP BANNER AD CAROUSEL CONTAINER -->
@@ -39,12 +39,12 @@
         
         <!-- STORE 1: Morak Restaurant -->
         <section class="ad-wide-banner ad-slide" data-slide-index="0" data-sponsor="morak_restaurant">
-          <span class="ad-tag">MORAK • SPONSORED</span>
+          <span class="ad-tag">MORAK</span>
           <div style="height: 5px;"></div>
           <div class="ad-body">
             <div class="ad-content-left">
               <h3 class="ad-heading">Delicious &amp; Heartwarming Korean food!</h3>
-              <p class="ad-subtext">Made just for you!</p>
+              <!--<p class="ad-subtext">Made just for you!</p>-->
               <div class="ad-cta-row">
                 <div class="status-indicator" data-schedule="morak">
                   <span class="dot status-dot closed"></span>
@@ -54,31 +54,85 @@
                    target="_blank" 
                    rel="noopener" 
                    onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'morak_restaurant' });" 
-                   class="ad-cta-btn">
-                   View The Menu -&gt;
+                   class="ad-cta-btn animated-orange">
+                   View Menu
                 </a>
               </div>
             </div>
             <div class="ad-content-right">
-              <a href="https://linktr.ee/MORAK6895?utm_source=qr_code" 
-                 target="_blank" 
-                 rel="noopener"
-                 onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'morak_restaurant' });">
+              
                 <img src="/static/images/morak-03.png" alt="Morak Special Deal" class="ad-img-thumb">
-              </a>
+              
             </div>
           </div>
+          <!--
           <div class="operating-hours-container">
             <div class="hours-text">
               <p>⏰ <strong>Mon–Sun:</strong> 10:00 AM – 8:00 PM <em>(Last Order: 7:30 PM)</em></p>
               <p>⏸️ <strong>Weekend Break Time:</strong> 3:00 PM – 5:00 PM <em>(Sat &amp; Sun)</em></p>
             </div>
           </div>
+        -->
         </section>
 
         <!-- TOP - STORE 2 -->
-        <section class="ad-wide-banner ad-slide" data-slide-index="1" data-sponsor="mymy_chicken">
-          <span class="ad-tag">MYMY CHICKEN • SPECIAL COUPON</span>
+        <section class="ad-wide-banner ad-slide" data-slide-index="1" data-sponsor="levant">
+          <span class="ad-tag">LEVANT</span>
+          <div style="height: 5px;"></div>
+          <div class="ad-body">
+            <div class="ad-content-left">
+              <h3 class="ad-heading">FREE Tteokbokki or Drink! 😋🥤</h3>
+              <p class="ad-subtext">✨ Show website at counter</p>
+
+              <div class="ad-cta-row">
+
+                <!-- Live Operating Status -->
+                 <!--
+                <div class="status-indicator" data-schedule="mymy">
+                  <span class="dot status-dot closed"></span>
+                  <span class="status-text text-closed">CLOSED</span>
+                </div>
+              -->
+          
+                <a href="https://m.place.naver.com/restaurant/1709630594/home?query=%EB%A7%88%EC%9D%B4%EB%A7%88%EC%9D%B4%EC%B9%98%ED%82%A8%20%EC%A0%84%EB%B6%81%EB%8C%80&entry=plt#blogLinkNotice" 
+                   target="_blank" 
+                   rel="noopener" 
+                   onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'levant' });" 
+                   class="ad-cta-btn animated-orange">
+                   View Menu
+                </a>
+
+                <!-- Get Coupon Action Button -->
+                <a href="https://build529.github.io/mymy-special-coupon/" 
+                  target="_blank" 
+                  rel="noopener" 
+                  onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'mymy_chicken_coupon' });" 
+                  class="ad-cta-btn animated-coupon">
+                  GET FREE COUPON!
+                </a>
+              </div>
+            </div>
+            <div class="ad-content-right">
+
+                <img src="/static/images/mymy-special-promo.png" alt="MYMY Chicken" class="ad-img-thumb">
+              
+            </div>
+          </div>
+
+          <!--
+          <div class="operating-hours-container">
+            <div class="hours-text">
+              <p>⏰ <strong>Mon–Sun:</strong> 4:00 PM – 2:00 AM <em>(Last Order: 1:20 AM)</em></p>
+              <p>⏸️ <strong>No Break Time</strong></p>
+            </div>
+          </div>
+        -->
+
+        </section>
+
+        <!-- STORE 3  -->
+        <section class="ad-wide-banner ad-slide" data-slide-index="2" data-sponsor="mymy-chicken">
+          <span class="ad-tag">MYMY CHICKEN</span>
           <div style="height: 5px;"></div>
           <div class="ad-body">
             <div class="ad-content-left">
@@ -99,8 +153,8 @@
                    target="_blank" 
                    rel="noopener" 
                    onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'mymy_chicken' });" 
-                   class="ad-cta-btn">
-                   View Menu -&gt;
+                   class="ad-cta-btn animated-orange">
+                   View Menu
                 </a>
 
                 <!-- Get Coupon Action Button -->
@@ -114,68 +168,20 @@
               </div>
             </div>
             <div class="ad-content-right">
-              <a href="https://www.instagram.com/mymyjbnu" 
-                 target="_blank" 
-                 rel="noopener"
-                 onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'istanbul_kebab' });">
+
                 <img src="/static/images/mymy-special-promo.png" alt="MYMY Chicken" class="ad-img-thumb">
-              </a>
+              
             </div>
           </div>
 
-          
+          <!--
           <div class="operating-hours-container">
             <div class="hours-text">
               <p>⏰ <strong>Mon–Sun:</strong> 4:00 PM – 2:00 AM <em>(Last Order: 1:20 AM)</em></p>
               <p>⏸️ <strong>No Break Time</strong></p>
             </div>
           </div>
-    
-
-        </section>
-
-        <!-- STORE 3: Campus Pizza Place -->
-        <section class="ad-wide-banner ad-slide" data-slide-index="2" data-sponsor="mankye-chicken">
-          
-          <span class="ad-tag">MANKYE CHICKEN • SPONSORED</span>
-          <div style="height: 5px;"></div>
-          <div class="ad-body">
-            <div class="ad-content-left">
-              <h3 class="ad-heading">Late-Night Craving? Mankye! 🍗</h3>
-              <p class="ad-subtext">Hear the Crunch!</p>
-              <div class="ad-cta-row">
-                <!--
-                <div class="status-indicator" data-schedule="pizza">
-                  <span class="dot status-dot closed"></span>
-                  <span class="status-text text-closed">CLOSED</span>
-                </div>
-              -->
-                <a href="https://m.place.naver.com/restaurant/1390791171/home?query=%EC%A0%84%EB%B6%81%EB%8C%80+%EB%A7%8C%EA%B3%84%EC%B9%98%ED%82%A8" 
-                   target="_blank" 
-                   rel="noopener" 
-                   onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'mankye-chicken' });" 
-                   class="ad-cta-btn">
-                   View The Menu -&gt;
-                </a>
-              </div>
-            </div>
-            <div class="ad-content-right">
-              <a href="https://m.place.naver.com/restaurant/1390791171/home?query=%EC%A0%84%EB%B6%81%EB%8C%80+%EB%A7%8C%EA%B3%84%EC%B9%98%ED%82%A8" 
-                 target="_blank" 
-                 rel="noopener"
-                 onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'mankye-chicken' });">
-                <img src="/static/images/mankye-chicken.jpg" alt="Pizza Place Special Deal" class="ad-img-thumb">
-              </a>
-            </div>
-          </div>
-          <div class="operating-hours-container">
-            <div class="hours-text">
-              <p>⏰ <strong>Mon–Sun:</strong> 5:00 PM – 2:00 AM</p>
-              <p>⏸️ <strong>No Break Time</strong></p>
-            </div>
-          </div>
-        
-
+         -->
         </section>
 
       </div>
@@ -226,59 +232,58 @@
     <div style="height: 40px;"></div>
 
     <!-- MIDDLE BANNER AD CAROUSEL CONTAINER -->
-    <template>
+    
     <div class="ad-carousel-container" aria-label="Featured Restaurant Announcements - Middle Banner">
       <div class="ad-carousel-track" id="middle-banner-carousel">
-        
-        <img src="/static/images/default-banner.png" 
-       alt="Interested in advertising? Contact us!" 
-       class="ad-full-banner-img">
 
-        <!-- STORE 1 (Middle): Qaysar Qaynarr -->
-        <section class="ad-wide-banner ad-slide" data-slide-index="0" data-sponsor="middle-1">
+        <!-- STORE 1 (Middle): -->
+        <section class="ad-wide-banner ad-slide" data-slide-index="0" data-sponsor="mankye-chicken">
 
-          <!--
-          <span class="ad-tag">SPONSORED</span>
+
+        <span class="ad-tag">MANKYE CHICKEN</span>
           <div style="height: 5px;"></div>
           <div class="ad-body">
             <div class="ad-content-left">
-              <h3 class="ad-heading">HEADING MIDDLE</h3>
-              <p class="ad-subtext">SUNB MIDDLE</p>
+              <h3 class="ad-heading">Late-Night Craving? Mankye! 🍗</h3>
+              <!--<p class="ad-subtext">Hear the Crunch!</p>-->
               <div class="ad-cta-row">
-                
-                <div class="status-indicator" data-schedule="qaysar">
+                <!--
+                <div class="status-indicator" data-schedule="pizza">
                   <span class="dot status-dot closed"></span>
                   <span class="status-text text-closed">CLOSED</span>
                 </div>
-              
-                <a href="" 
+              -->
+                <a href="https://m.place.naver.com/restaurant/1390791171/home?query=%EC%A0%84%EB%B6%81%EB%8C%80+%EB%A7%8C%EA%B3%84%EC%B9%98%ED%82%A8" 
                    target="_blank" 
                    rel="noopener" 
-                   onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'middle-1' });" 
-                   class="ad-cta-btn">
-                   View The Menu -&gt;
+                   onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'mankye-chicken' });" 
+                   class="ad-cta-btn animated-orange">
+                   View Menu
                 </a>
+
               </div>
             </div>
             <div class="ad-content-right">
-              <a href="" 
-                 target="_blank" 
-                 rel="noopener"
-                 onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'middle-1' });">
-                <img src="/static/images/pizza-idea-store.png" alt="Mankye Chicken" class="ad-img-thumb">
-              </a>
+
+                <img src="/static/images/mankye-chicken.jpg" alt="Pizza Place Special Deal" class="ad-img-thumb">
+           
             </div>
           </div>
+
+          <!--
           <div class="operating-hours-container">
             <div class="hours-text">
               <p>⏰ <strong>Mon–Sun:</strong> 5:00 PM – 2:00 AM</p>
               <p>⏸️ <strong>No Break Time</strong></p>
             </div>
           </div>
-        </section>
-      -->
+        -->
+        
 
-        <!-- STORE 2 (Middle): Burger House -->
+        </section>
+    
+
+        <!-- STORE 2 (Middle)  -->
         <section class="ad-wide-banner ad-slide" data-slide-index="1" data-sponsor="middle-2">
 
         <img src="/static/images/default-banner.png" 
@@ -293,39 +298,28 @@
               <h3 class="ad-heading">Burger House Special Combo!</h3>
               <p class="ad-subtext">Juicy Craft Burgers — Student Discount!</p>
               <div class="ad-cta-row">
-                <div class="status-indicator" data-schedule="burger">
-                  <span class="dot status-dot closed"></span>
-                  <span class="status-text text-closed">CLOSED</span>
-                </div>
+ 
                 <a href="https://your-restaurant-link.com" 
                    target="_blank" 
                    rel="noopener" 
-                   onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'middle_burger_house' });" 
-                   class="ad-cta-btn">
-                   View The Menu -&gt;
+                   onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'middle-2' });" 
+                   class="ad-cta-btn animated-orange">
+                   View Menu;
                 </a>
               </div>
             </div>
             <div class="ad-content-right">
-              <a href="https://your-restaurant-link.com" 
-                 target="_blank" 
-                 rel="noopener"
-                 onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'middle_burger_house' });">
+         
                 <img src="/static/images/burger-house.png" alt="Burger House Special Deal" class="ad-img-thumb">
-              </a>
+             
             </div>
           </div>
-          <div class="operating-hours-container">
-            <div class="hours-text">
-              <p>⏰ <strong>Mon–Sat:</strong> 10:30 AM – 9:00 PM</p>
-              <p>⏸️ <strong>Closed on Sundays</strong></p>
-            </div>
-          </div>
+ 
         -->
         </section>
     
 
-        <!-- STORE 3 (Middle): Dorothy Cafe -->
+        <!-- STORE 3 (Middle) -->
 
         <section class="ad-wide-banner ad-slide" data-slide-index="2" data-sponsor="middle-3">
 
@@ -348,26 +342,18 @@
                    target="_blank" 
                    rel="noopener" 
                    onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'dorothy_cafe' });" 
-                   class="ad-cta-btn">
-                   View The Menu -&gt;
+                   class="ad-cta-btn animated-orange">
+                   View Menu
                 </a>
               </div>
             </div>
             <div class="ad-content-right">
-              <a href="https://your-restaurant-link.com" 
-                 target="_blank" 
-                 rel="noopener"
-                 onclick="gtag('event', 'ad_click', { 'slot_location': 'middle_banner', 'sponsor_name': 'dorothy_cafe' });">
-                <img src="/static/images/dorothy.PNG" alt="Dorothy Cafe Special Deal" class="ad-img-thumb">
-              </a>
+
+                <img src="/static/images/ " alt="Dorothy Cafe Special Deal" class="ad-img-thumb">
+              
             </div>
           </div>
-          <div class="operating-hours-container">
-            <div class="hours-text">
-              <p>⏰ <strong>Mon–Sun:</strong> 9:00 AM – 10:00 PM</p>
-              <p>⏸️ <strong>No Break Time</strong></p>
-            </div>
-          </div>
+
         -->
         </section>
 
@@ -380,7 +366,7 @@
         <span class="carousel-dot" data-index="2"></span>
       </div>
     </div>
-    </template>
+    
 
     <!-- LUNCH SECTION -->
     <section aria-label="Lunch menu">
@@ -424,8 +410,8 @@
     <div class="ad-carousel-container" aria-label="Featured Restaurant Announcements - Bottom Banner">
       <div class="ad-carousel-track" id="bottom-banner-carousel">
         
-        <!-- STORE 1 (Bottom): Campus Pizza Place -->
-        <section class="ad-wide-banner ad-slide" data-slide-index="0" data-sponsor="pizza_place_b">
+        <!-- STORE 1 (Bottom)-->
+        <section class="ad-wide-banner ad-slide" data-slide-index="0" data-sponsor="bottom-1">
           <span class="ad-tag">SPONSORED</span>
           <div style="height: 5px;"></div>
           <div class="ad-body">
@@ -433,38 +419,26 @@
               <h3 class="ad-heading">Hot &amp; Fresh Campus Pizza!</h3>
               <p class="ad-subtext">Best Slices Around Campus!</p>
               <div class="ad-cta-row">
-                <div class="status-indicator" data-schedule="pizza_b">
-                  <span class="dot status-dot closed"></span>
-                  <span class="status-text text-closed">CLOSED</span>
-                </div>
+                
                 <a href="https://gopizza.kr/menu" 
                    target="_blank" 
                    rel="noopener" 
-                   onclick="gtag('event', 'ad_click', { 'slot_location': 'bottom_banner', 'sponsor_name': 'pizza_place_b' });" 
-                   class="ad-cta-btn">
-                   View The Menu -&gt;
+                   onclick="gtag('event', 'ad_click', { 'slot_location': 'bottom_banner', 'sponsor_name': 'bottom-1' });" 
+                   class="ad-cta-btn animated-orange">
+                   View Menu
                 </a>
               </div>
             </div>
-            <div class="ad-content-right">
-              <a href="https://gopizza.kr/menu" 
-                 target="_blank" 
-                 rel="noopener"
-                 onclick="gtag('event', 'ad_click', { 'slot_location': 'bottom_banner', 'sponsor_name': 'pizza_place_b' });">
+    
                 <img src="/static/images/pizza-idea-store.png" alt="Pizza Place Special Deal" class="ad-img-thumb">
-              </a>
+              
             </div>
           </div>
-          <div class="operating-hours-container">
-            <div class="hours-text">
-              <p>⏰ <strong>Mon–Sat:</strong> 11:30 AM – 10:00 PM <em>(Last Order: 9:30 PM)</em></p>
-              <p>⏸️ <strong>Closed on Sundays</strong></p>
-            </div>
-          </div>
+          
         </section>
 
-        <!-- STORE 2 (Bottom): Noodle Bar -->
-        <section class="ad-wide-banner ad-slide" data-slide-index="1" data-sponsor="bottom_noodle_bar">
+        <!-- STORE 2 (Bottom) -->
+        <section class="ad-wide-banner ad-slide" data-slide-index="1" data-sponsor="bottom-2">
           <span class="ad-tag">SPONSORED</span>
           <div style="height: 5px;"></div>
           <div class="ad-body">
@@ -472,38 +446,27 @@
               <h3 class="ad-heading">Spicy Asian Noodle Bar!</h3>
               <p class="ad-subtext">Hot Bowls &amp; Fast Lunch Service!</p>
               <div class="ad-cta-row">
-                <div class="status-indicator" data-schedule="noodles">
-                  <span class="dot status-dot closed"></span>
-                  <span class="status-text text-closed">CLOSED</span>
-                </div>
+
                 <a href="https://your-restaurant-link.com" 
                    target="_blank" 
                    rel="noopener" 
-                   onclick="gtag('event', 'ad_click', { 'slot_location': 'bottom_banner', 'sponsor_name': 'bottom_noodle_bar' });" 
+                   onclick="gtag('event', 'ad_click', { 'slot_location': 'bottom_banner', 'sponsor_name': 'bottom-2' });" 
                    class="ad-cta-btn">
-                   View The Menu -&gt;
+                   View Menu
                 </a>
               </div>
             </div>
             <div class="ad-content-right">
-              <a href="https://your-restaurant-link.com" 
-                 target="_blank" 
-                 rel="noopener"
-                 onclick="gtag('event', 'ad_click', { 'slot_location': 'bottom_banner', 'sponsor_name': 'bottom_noodle_bar' });">
+
                 <img src="/static/images/noodle-bar.png" alt="Noodle Bar Special Deal" class="ad-img-thumb">
-              </a>
+       
             </div>
           </div>
-          <div class="operating-hours-container">
-            <div class="hours-text">
-              <p>⏰ <strong>Mon–Sat:</strong> 11:00 AM – 8:30 PM</p>
-              <p>⏸️ <strong>Closed on Sundays</strong></p>
-            </div>
-          </div>
+         
         </section>
 
-        <!-- STORE 3 (Bottom): Salad Store -->
-        <section class="ad-wide-banner ad-slide" data-slide-index="2" data-sponsor="bottom_salad_store">
+        <!-- STORE 3 (Bottom) -->
+        <section class="ad-wide-banner ad-slide" data-slide-index="2" data-sponsor="bottom-3">
           <span class="ad-tag">SPONSORED</span>
           <div style="height: 5px;"></div>
           <div class="ad-body">
@@ -511,16 +474,13 @@
               <h3 class="ad-heading">Fresh Green Salad Bowls!</h3>
               <p class="ad-subtext">Healthy Student Fuel Every Day!</p>
               <div class="ad-cta-row">
-                <div class="status-indicator" data-schedule="salad">
-                  <span class="dot status-dot closed"></span>
-                  <span class="status-text text-closed">CLOSED</span>
-                </div>
+ 
                 <a href="https://your-restaurant-link.com" 
                    target="_blank" 
                    rel="noopener" 
                    onclick="gtag('event', 'ad_click', { 'slot_location': 'bottom_banner', 'sponsor_name': 'bottom_salad_store' });" 
                    class="ad-cta-btn">
-                   View The Menu -&gt;
+                   View Menu
                 </a>
               </div>
             </div>
@@ -533,12 +493,7 @@
               </a>
             </div>
           </div>
-          <div class="operating-hours-container">
-            <div class="hours-text">
-              <p>⏰ <strong>Mon–Fri:</strong> 10:00 AM – 8:00 PM</p>
-              <p>⏸️ <strong>Closed on Weekends</strong></p>
-            </div>
-          </div>
+
         </section>
 
       </div>
