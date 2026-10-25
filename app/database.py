@@ -1,6 +1,9 @@
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import declarative_base
+
+Base = declarative_base()
 
 # 1. Primary Database (Local SQLite for menus, recipes, historical photos)
 MAIN_DB_URL = os.getenv("DATABASE_URL", "sqlite:///./data/chambit.db")
