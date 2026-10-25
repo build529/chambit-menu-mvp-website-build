@@ -1,21 +1,31 @@
 import os
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import declarative_base, sessionmaker
 
+# Base class exported for app/models.py
 Base = declarative_base()
 
-# 1. Primary Database (Local SQLite for menus, recipes, historical photos)
+# 1. Primary Database (Local SQLite / Main DB for menus, recipes, historical photos)
 MAIN_DB_URL = os.getenv("DATABASE_URL", "sqlite:///./data/chambit.db")
+if MAIN_DB_URL.startswith("postgres://"):
+    MAIN_DB_URL = MAIN_DB_URL.replace("postgres://", "postgresql://", 1)
 
 engine_main = create_engine(
     MAIN_DB_URL,
-    connect_args={"check_same_thread": False} if "sqlite" in MAIN_DB_URL else {}
+    connect_args={"check_same_thread": False} if "sqlite" in MAIN_DB_URL else {},
+    pool_pre_ping=True if "postgresql" in MAIN_DB_URL else False
 )
+
+# Export 'engine' alias so app/main.py can import `Base, engine`
+engine = engine_main
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine_main)
+
 
 # 2. Coupon Database (Supabase PostgreSQL for coupons)
 COUPON_DB_URL = os.getenv("COUPON_DATABASE_URL")
+if COUPON_DB_URL and COUPON_DB_URL.startswith("postgres://"):
+    COUPON_DB_URL = COUPON_DB_URL.replace("postgres://", "postgresql://", 1)
 
 engine_supabase = create_engine(COUPON_DB_URL, pool_pre_ping=True) if COUPON_DB_URL else None
 CouponSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine_supabase) if engine_supabase else None
@@ -28,6 +38,7 @@ def get_db():
         yield db
     finally:
         db.close()
+
 
 # Dependency for Coupon Routes
 def get_coupon_db():
