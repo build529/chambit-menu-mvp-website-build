@@ -767,3 +767,58 @@ a {
   35% { left: 140%; }
   100% { left: 140%; }
 }
+
+
+/* ==========================================================================
+   HARD HEIGHT LOCK FOR CTA BUTTONS (MATCHES VIEW MENU EXACTLY)
+   ========================================================================== */
+
+/* 1. Prevent flexbox from stretching button heights */
+.ad-cta-row {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+}
+
+/* 2. Reset browser button quirks & hard-lock height to 24px */
+a.ad-cta-btn,
+button.ad-cta-btn,
+button#levant-claim-btn {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  height: 24px !important;
+  min-height: 24px !important;
+  max-height: 24px !important;
+  
+  padding: 0 10px !important;       /* Side padding only; height handles top/bottom */
+  margin: 0 !important;
+  
+  font-family: inherit !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  
+  border: none !important;
+  border-radius: 8px !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+}
+
+/* 3. Green gradient styling */
+button#levant-claim-btn.animated-coupon {
+  /*
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35) !important;
+  */
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #4f46e5 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.45);
+}

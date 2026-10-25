@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from app.routers import coupon
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.sessions import SessionMiddleware
 
@@ -11,6 +12,7 @@ from app.routers import admin, api, public
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Chambit Menu")
+app.include_router(coupon.router)
 
 app.add_middleware(
     SessionMiddleware,

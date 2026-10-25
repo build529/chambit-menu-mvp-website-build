@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chambit Menu</title>
-  <link rel="stylesheet" href="/static/css/site.css?v=animated-orange-01">
+  <link rel="stylesheet" href="/static/css/site.css?v=ad-cta-btn-01">
 
   {% if ga_measurement_id %}
   <!-- Google tag (gtag.js) -->
@@ -75,60 +75,48 @@
         -->
         </section>
 
-        <!-- TOP - STORE 2 -->
-        <section class="ad-wide-banner ad-slide" data-slide-index="1" data-sponsor="levant">
-          <span class="ad-tag">LEVANT</span>
-          <div style="height: 5px;"></div>
-          <div class="ad-body">
-            <div class="ad-content-left">
-              <h3 class="ad-heading">FREE Tteokbokki or Drink! 😋🥤</h3>
-              <p class="ad-subtext">✨ Show website at counter</p>
-
-              <div class="ad-cta-row">
-
-                <!-- Live Operating Status -->
-                 <!--
-                <div class="status-indicator" data-schedule="mymy">
-                  <span class="dot status-dot closed"></span>
-                  <span class="status-text text-closed">CLOSED</span>
-                </div>
-              -->
+      <!-- TOP - STORE 2: Levant Middle Eastern Restaurant -->
+      <section class="ad-wide-banner ad-slide" data-slide-index="1" data-sponsor="levant">
+        <span class="ad-tag" style="background-color: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0;">HALAL SPECIAL 🥙</span>
+        <div style="height: 10px;"></div>
+        
+        <div class="ad-body">
           
-                <a href="https://m.place.naver.com/restaurant/1709630594/home?query=%EB%A7%88%EC%9D%B4%EB%A7%88%EC%9D%B4%EC%B9%98%ED%82%A8%20%EC%A0%84%EB%B6%81%EB%8C%80&entry=plt#blogLinkNotice" 
-                   target="_blank" 
-                   rel="noopener" 
-                   onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'levant' });" 
-                   class="ad-cta-btn animated-orange">
-                   View Menu
-                </a>
+          <!-- LEFT SIDE: HEADING, SUBTEXT & CTA BUTTONS -->
+          <div class="ad-content-left">
+            <h3 class="ad-heading" style="color: #15803d;">₩1,000 OFF Student Meals!</h3>
+            <p class="ad-subtext">Charcoal Grills, Fresh Shawarma &amp; Crisp Falafel!</p>
 
-                <!-- Get Coupon Action Button -->
-                <a href="https://build529.github.io/mymy-special-coupon/" 
-                  target="_blank" 
-                  rel="noopener" 
-                  onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'mymy_chicken_coupon' });" 
-                  class="ad-cta-btn animated-coupon">
-                  GET FREE COUPON!
-                </a>
-              </div>
-            </div>
-            <div class="ad-content-right">
+            <div class="ad-cta-row">
 
-                <img src="/static/images/mymy-special-promo.png" alt="MYMY Chicken" class="ad-img-thumb">
-              
-            </div>
-          </div>
+              <!-- Menu Link -->
+              <a href="https://www.imlevant.com/table/students.html" 
+                target="_blank" 
+                rel="noopener" 
+                onclick="gtag('event', 'ad_click', { 'slot_location': 'top_banner', 'sponsor_name': 'levant_menu' });" 
+                class="ad-cta-btn animated-orange"
+                style="background-color: #ea580c;">
+                View Menu
+              </a>
 
-          <!--
-          <div class="operating-hours-container">
-            <div class="hours-text">
-              <p>⏰ <strong>Mon–Sun:</strong> 4:00 PM – 2:00 AM <em>(Last Order: 1:20 AM)</em></p>
-              <p>⏸️ <strong>No Break Time</strong></p>
+              <!-- Get Coupon Action Button -->
+              <button id="levant-claim-btn" 
+                      onclick="claimOrFetchLevantCoupon()" 
+                      class="ad-cta-btn animated-coupon">
+                GET FREE COUPON!
+              </button>
+
             </div>
           </div>
-        -->
 
-        </section>
+          <!-- RIGHT SIDE: THUMBNAIL LOGO -->
+          <div class="ad-content-right">
+            <img src="/static/images/levant-logo.png" alt="Levant" class="ad-img-thumb">
+          </div>
+
+        </div>
+
+      </section>
 
         <!-- STORE 3  -->
         <section class="ad-wide-banner ad-slide" data-slide-index="2" data-sponsor="mymy-chicken">
@@ -286,7 +274,7 @@
         <!-- STORE 2 (Middle)  -->
         <section class="ad-wide-banner ad-slide" data-slide-index="1" data-sponsor="middle-2">
 
-        <img src="/static/images/default-banner.png" 
+        <img src="/static/images/default_3.5.png" 
        alt="Interested in advertising? Contact us!" 
        class="ad-full-banner-img">
     
@@ -323,7 +311,7 @@
 
         <section class="ad-wide-banner ad-slide" data-slide-index="2" data-sponsor="middle-3">
 
-        <img src="/static/images/default-banner.png" 
+        <img src="/static/images/default_3.5.png" 
        alt="Interested in advertising? Contact us!" 
        class="ad-full-banner-img">
         <!--
@@ -543,5 +531,6 @@
   <script src="/static/js/morak-status.js"></script>
   <script src="/static/js/restaurant-status.js?v=v1-test"></script>
   <script src="/static/js/carousel.js?v=v10-dwell-fix"></script>
+  <script src="/static/js/levant_coupon.js?v=v4-voucher"></script>
 </body>
 </html>

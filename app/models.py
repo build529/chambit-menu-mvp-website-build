@@ -6,6 +6,11 @@ from sqlalchemy.orm import Mapped, mapped_column
 from .database import Base
 
 
+from sqlalchemy import Column, Integer, String, Boolean, DateTime
+from datetime import datetime
+from app.database import Base
+
+
 MEAL_PERIODS = ("BREAKFAST", "LUNCH", "DINNER")
 LINE_TYPES = ("LEFT", "RIGHT", "SHARED")
 IMAGE_SOURCES = ("AI_GENERATED", "REAL", "STUDENT_UPLOADED")
@@ -101,3 +106,14 @@ class MenuEntry(Base):
         Text,
         nullable=True,
     )
+
+
+
+class LevantCoupon(Base):
+    __tablename__ = "levant_coupons"
+
+    id = Column(Integer, primary_key=True, index=True)
+    code = Column(String(50), unique=True, index=True, nullable=False)
+    is_assigned = Column(Boolean, default=False)
+    assigned_at = Column(DateTime, nullable=True)
+    assigned_ip = Column(String(100), nullable=True)
